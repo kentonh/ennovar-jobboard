@@ -1,0 +1,26 @@
+/*<!--
+Zachary Pearson
+1/7/2016
+-->*/
+.applicationURL{
+  display:none;
+}
+.cr_lstng-applicationURL{
+  display:none;
+}
+.cr_lstng-title{
+margin-top:10px;
+margin-bottom:10px;
+}
+.cr_lstng-description{
+margin-bottom:10px;
+}
+.cr_lstng-perks{
+margin-bottom:15px;
+}
+.cr_lstng-category{
+margin-bottom:15px;
+}
+.cr_lstng-application{
+margin-bottom:15px;
+}
