@@ -1,0 +1,31 @@
+.titlebox{
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.title{
+  margin-top:10px;
+  font-size: 30px;
+}
+.publishedDate{
+  margin-top: 10px;
+  margin-bottom:10px;
+  font-size: 12px;
+}
+.info{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.description{
+  margin-top:10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.perks{
+  margin-bottom:10px;
+  font-size: 16px;
+}
+.heading{
+  margin-bottom: 10px;
+  font-size:18px;
+  font-weight: 600;
+}
