@@ -1,0 +1,36 @@
+<!--
+  Author: Zachary Pearson
+  Created: 1/7/2016
+-->
+
+<template name="view_listing">
+  <div class = "view">
+    {{#each job}}
+    <div class=titlebox>
+      <div class="title">
+        {{title}}
+      </div>
+      <div class="publishedDate">{{createdAt}}</div>
+      <div class="info">
+        <span class="company">{{company}}</span> - <span class="category">{{category}}</span>
+      </div>
+    </div>
+    <div class="description">
+      <div class=heading>Description:</div>
+      {{description}}
+    </div>
+    <div class="perks">
+      <div class=heading>Perks:</div>
+      {{perks}}
+    </div>
+    <div class="url">
+      <div class=heading>To apply:</div>
+      {{#if isEmail}}
+      Please send an email with your resume attached to: <a href={{url}}>{{url}}</a>
+      {{else}}
+      <button type="button" onclick="window.location.href='{{url}}'">Click Here</button>
+      {{/if}}
+    </div>
+    {{/each}}
+  </div>
+</template>
