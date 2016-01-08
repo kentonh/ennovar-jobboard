@@ -1,12 +1,17 @@
 <!--
-Zachary Pearson
-1/7/2016
+  Author: Zachary Pearson
+  Created: 1/7/2016
 -->
+
 <template name="create_listing">
   <form class="cr_lstng">
     <div class="cr_lstng-title">
       Title:<br>
       <input type="text" name="title">
+    </div>
+    <div class="cr_lstng-company">
+      Company:<br>
+      <input type="text" name="company">
     </div>
     <div class="cr_lstng-description">
       Description:<br>
@@ -16,24 +21,23 @@ Zachary Pearson
       Perks:<br>
       <textarea rows="20" cols="80" name="perks"></textarea>
     </div>
-      <div class="cr_lstng-category">
-        Please Select the Job Category:<br>
-        <input type="radio" name="category" value="one">Category 1<br>
-        <input type="radio" name="category" value="two">Category 2<br>
-        <input type="radio" name="category" value="three">Category 3<br>
-        <input type="radio" name="category" value="four">Category 4<br>
-        <input type="radio" name="category" value="five">Category 5
+    <div class="cr_lstng-category">
+      Please Select the Job Category:<br>
+      <input type="radio" name="category" value="one">Category 1<br>
+      <input type="radio" name="category" value="two">Category 2<br>
+      <input type="radio" name="category" value="three">Category 3<br>
+      <input type="radio" name="category" value="four">Category 4<br>
+      <input type="radio" name="category" value="five">Category 5
+    </div>
+    <div class="cr_lstng-application">
+      How Should Applicants Apply?<br>
+      <input type="radio" name="apply" value="email" class="applyByEmail"> E-mail (Use Email Associated with this Account)<br>
+      <input type="radio" name="apply" value="website" class="applyByWebsite"> Website
+      <div class="applicationURL">
+        URL:<br>
+        <input type="text" name="app_URL">
       </div>
-      <div class="cr_lstng-application">
-        How Should Applicants Apply?
-        <br>
-        <input type="radio" name="apply" value="email" class="applyByEmail"> E-mail (Use Email Associated with this Account)<br>
-        <input type="radio" name="apply" value="website" class="applyByWebsite"> Website
-        <div class="applicationURL">
-          URL:<br>
-          <input type="text" name="app_URL">
-        </div>
-      </div>
+    </div>
     <div class="cr_lstng-createbutton">
       <input type="submit" value="Create Listing">
     </div>

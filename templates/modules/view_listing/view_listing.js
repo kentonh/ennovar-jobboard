@@ -8,26 +8,9 @@ if (Meteor.isClient){
     }
   }),
   Template.view_listing.helpers({
-    title: function(){
-      return "[TITLE YO]";
-    },
-
-    description: function(){
-      return "[Description: ITS A JOB, MAN!]";
-    },
-
-    perks: function(){
-      return "[Perks: YOU GET ALL KINDS OF MONEY!!!]";
-    },
-
-    category: function(){
-      return "[Category: COMPUTERS]";
-    },
-    company: function(){
-      return "[Company]";
-    },
-    published: function(){
-      return "[Date]"
+    job: function(){
+      jobId = Router.current().params.id;
+      return Jobs.find(jobId);
     }
   })
 }

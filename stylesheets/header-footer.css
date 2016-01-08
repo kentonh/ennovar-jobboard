@@ -1,0 +1,57 @@
+/*
+** Author: Rishab
+** Created: 1/6/2015
+*/
+
+/* Header */
+.hdr {
+  width: 100%;
+  background-color: #3333ff;
+  position: fixed;
+  top: 0px;
+}
+
+.hdr_ttl {
+  height: 50px;
+  margin-left: 15px;
+  float: left;
+}
+
+.hdr_home {
+  height: 50px;
+  margin-left: 22%;
+  float: left;
+  color: #FFFFFF;
+}
+
+.hdr_login {
+  height: 50px;
+  margin-left: 5%;
+  float: left;
+}
+
+.hdr_txt {
+  height: 50px;
+  margin-left: 5%;
+  line-height: 40px;
+  float: left;
+}
+
+.hdr_search {
+  height: 50px;
+  margin-left: 5%;
+  float: left;
+  color: #FFFFFF;
+}
+
+div.hdr {
+  font-family: 'Lato';
+  font-size: 24px;
+  color: #FFFFFF;
+  line-height: 45px;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+}
