@@ -1,15 +1,13 @@
 <template name="header">
-  <table  width="100%" cellpadding="10">
-  <tr>
-  <td width="80"> <button type="button"> Jobs in ICT </button> </td>
-  <td width="20"> <button type="button"> Home </button></td>
-  <td width="20"> <button type="button"> Login </button> </td>
-  <td width="20"> <input type="text" name="search"> </td>
-  <td width="20"> <button type="button"> Search </button></td>
-</tr>
-  </table>
+  <div class = "hdr">
+    <div class = "hdr_ttl">Jobs in ICT</div>
+    <a href = '/'><div class = "hdr_home">Home</div></a>
+    <div class = "hdr_login">Login</div>
+    <div class = "hdr_txt"><input type = "search"></div>
+    <a href = '/search'><div class = "hdr_search">Search</div></a>
+  </div>
 </template>
 
 <template name = "footer">
-<div class="footer"> <h1>Created by Ennovar </h1></div>
+  <div class="footer"> <h1>Created by Ennovar </h1></div>
 </template>

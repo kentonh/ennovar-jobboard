@@ -1,10 +1,65 @@
 /* CSS declarations go here */
-table{
-background-color: brown;}
+table {
+}
 
-div.footer{
-position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 300px;
-  }
+
+.hdr {
+  width: 100%;
+  background-color: #3333ff;
+  position: fixed;
+  top: 0px;
+}
+
+.hdr_ttl {
+  height: 50px;
+  margin-left: 15px;
+  float: left;
+}
+
+.hdr_home {
+  height: 50px;
+  margin-left: 22%;
+  float: left;
+}
+
+.hdr_login {
+  height: 50px;
+  margin-left: 5%;
+  float: left;
+}
+
+.hdr_txt {
+  height: 50px;
+  margin-left: 5%;
+  line-height: 40px;
+  float: left;
+}
+
+.hdr_search {
+  height: 50px;
+  margin-left: 5%;
+  float: left;
+}
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+a {
+  color: white;
+}
+div.hdr {
+  font-family: 'Lato';
+  font-size: 24px;
+  color: #FFFFFF;
+  line-height: 45px;
+}
+
+footer {
+  width: 100%;
+}
+
+
+body {
+  margin: 0px;
+}
