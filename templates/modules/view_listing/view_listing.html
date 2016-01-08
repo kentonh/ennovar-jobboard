@@ -23,8 +23,13 @@
       <div class=heading>Perks:</div>
       {{perks}}
     </div>
-    <div class="application">
-      <button type="button">Apply Now!</button>
+    <div class="url">
+      <div class=heading>To apply:</div>
+      {{#if isEmail}}
+      Please send an email with your resume attached to: <a href={{url}}>{{url}}</a>
+      {{else}}
+      <button type="button" onclick="window.location.href='{{url}}'">Click Here</button>
+      {{/if}}
     </div>
     {{/each}}
   </div>
