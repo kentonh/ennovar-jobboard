@@ -13,30 +13,42 @@ if (Meteor.isClient)
       $('.applicationURL').css("display","none");
     },
     'submit form':function(e,t){
-      /*if(typeof Session.get('listings') == "undefined")
-      {
-        Session.set('listings')
-      }
-      var listing = {};
-      listing["title"]= e.target.title.value;
-      listing["description"]=e.target.description.value;
-      listing["perks"]=e.target.perks.value;
+      title = e.target.title.value;
+      company = e.target.company.value
+      description = e.target.description.value;
+      perks = e.target.perks.value;
       switch (e.target.category.value)
       {
-        case "one":listing["category"]="Category 1"; break;
-        case "two":listing["category"]="Category 2"; break;
-        case "three":listing["category"]="Category 3"; break;
-        case "four":listing["category"]="Category 4"; break;
-        case "five":listing["category"]="Category 5"; break;
+        case "one":
+          category = "Category 1";
+          break;
+        case "two":
+          category = "Category 2";
+          break;
+        case "three":
+          category = "Category 3";
+          break;
+        case "four":
+          category = "Category 4";
+          break;
+        case "five":
+          category = "Category 5";
+          break;
       }
       if(e.target.apply.value=="website")
       {
-        listing["appsite"]= true;
-        listing["website"]= e.target.app_URL.value;
+        isEmail = false;
+        url = e.target.app_URL.value;
       }else{
-        listing["appsite"]= false;
-        listing["website"]= "N/A";
-      }*/
+        isEmail = true;
+        url = Meteor.user().emails[0]["address"];
+      }
+
+      event.preventDefault();
+      Meteor.call("addJob", title, company, category, description, perks, isEmail, url, function(error, result){
+        console.log(result);
+        Router.go("/view/" + result)
+      });
     }
   });
 }
