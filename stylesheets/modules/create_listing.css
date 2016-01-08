@@ -5,6 +5,12 @@ Zachary Pearson
 .applicationURL{
   display:none;
 }
+
+/* Temporary Fix */
+.cr_lstng {
+  margin-top: 60px;
+}
+
 .cr_lstng-applicationURL{
   display:none;
 }
