@@ -1,34 +1,45 @@
-/*<!--
-Zachary Pearson
-1/7/2016
--->*/
-.titlebox{
+/*
+** Author: Zachary Pearson
+** Created: 1/7/2016
+*/
+
+.view {
+  margin: 60px 0px 0px 30px;
+}
+
+.titlebox {
   border-bottom-style: solid;
   border-bottom-width: 1px;
 }
-.title{
+
+.title {
   margin-top:10px;
   font-size: 30px;
 }
-.publishedDate{
+
+.publishedDate {
   margin-top: 10px;
   margin-bottom:10px;
   font-size: 12px;
 }
-.info{
+
+.info {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.description{
+
+.description {
   margin-top:10px;
   margin-bottom: 10px;
   font-size: 16px;
 }
-.perks{
+
+.perks {
   margin-bottom:10px;
   font-size: 16px;
 }
-.heading{
+
+.heading {
   margin-bottom: 10px;
   font-size:18px;
   font-weight: 600;

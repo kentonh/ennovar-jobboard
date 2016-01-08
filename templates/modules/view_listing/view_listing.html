@@ -4,26 +4,28 @@
 -->
 
 <template name="view_listing">
-  {{#each job}}
-  <div class=titlebox>
-    <div class="title">
-      {{title}}
+  <div class = "view">
+    {{#each job}}
+    <div class=titlebox>
+      <div class="title">
+        {{title}}
+      </div>
+      <div class="publishedDate">{{createdAt}}</div>
+      <div class="info">
+        <span class="company">{{company}}</span> - <span class="category">{{category}}</span>
+      </div>
     </div>
-    <div class="publishedDate">{{createdAt}}</div>
-    <div class="info">
-      <span class="company">{{company}}</span> - <span class="category">{{category}}</span>
+    <div class="description">
+      <div class=heading>Description:</div>
+      {{description}}
     </div>
+    <div class="perks">
+      <div class=heading>Perks:</div>
+      {{perks}}
+    </div>
+    <div class="application">
+      <button type="button">Apply Now!</button>
+    </div>
+    {{/each}}
   </div>
-  <div class="description">
-    <div class=heading>Description:</div>
-    {{description}}
-  </div>
-  <div class="perks">
-    <div class=heading>Perks:</div>
-    {{perks}}
-  </div>
-  <div class="application">
-    <button type="button">Apply Now!</button>
-  </div>
-  {{/each}}
 </template>
