@@ -1,0 +1,41 @@
+/*
+** Author: Zachary Pearson
+** Created: 1/7/2016
+*/
+.applicationURL{
+  display:none;
+}
+
+/* Temporary Fix */
+.cr_lstng {
+  margin: 60px 0px 0px 30px;
+}
+
+.cr_lstng-applicationURL {
+  display:none;
+}
+
+.cr_lstng-title {
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.cr_lstng-company {
+  margin-bottom:10px;
+}
+
+.cr_lstng-description {
+  margin-bottom:10px;
+}
+
+.cr_lstng-perks {
+  margin-bottom:15px;
+}
+
+.cr_lstng-category {
+  margin-bottom:15px;
+}
+
+.cr_lstng-application {
+  margin-bottom:15px;
+}
