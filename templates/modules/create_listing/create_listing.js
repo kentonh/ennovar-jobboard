@@ -17,6 +17,7 @@ if (Meteor.isClient)
       company = e.target.company.value
       description = e.target.description.value;
       perks = e.target.perks.value;
+      var category;
       switch (e.target.category.value)
       {
         case "one":

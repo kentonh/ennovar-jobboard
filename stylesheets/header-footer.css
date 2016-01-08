@@ -21,6 +21,7 @@
   height: 50px;
   margin-left: 22%;
   float: left;
+  color: #FFFFFF;
 }
 
 .hdr_login {
@@ -40,15 +41,7 @@
   height: 50px;
   margin-left: 5%;
   float: left;
-}
-
-a {
-  color: white;
-}
-
-a:visited {
-  text-decoration: none;
-  color: white;
+  color: #FFFFFF;
 }
 
 div.hdr {
