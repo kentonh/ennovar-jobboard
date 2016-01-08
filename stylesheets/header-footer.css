@@ -19,7 +19,7 @@
 
 .hdr_home {
   height: 50px;
-  margin-left: 22%;
+  margin-left: 15%;
   float: left;
   color: #FFFFFF;
 }
@@ -53,5 +53,14 @@ div.hdr {
 
 /* Footer */
 .footer {
+  height: 30px;
   width: 100%;
+  position: relative;
+  bottom: 0px;
+}
+
+.footer_txt {
+  width: 200px;
+  font-size: 16px;
+  margin: 0px auto;
 }
