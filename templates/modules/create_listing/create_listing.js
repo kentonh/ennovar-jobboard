@@ -1,7 +1,7 @@
-/*<!--
-Zachary Pearson
-1/7/2016
--->*/
+/*
+** Author: Zachary Pearson
+** Created: 1/7/2016
+*/
 
 if (Meteor.isClient)
 {
