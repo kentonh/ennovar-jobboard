@@ -28,7 +28,6 @@ Associated Files: homepage.html, homepage.js and homepage.css
   white-space: nowrap;
   border-radius: 10px;
   margin-right: 5px;
-  cursor: pointer;
   float: left;
 }
 .home-tags div:hover {
@@ -46,20 +45,22 @@ Associated Files: homepage.html, homepage.js and homepage.css
 }
 
 .home-listing a {
-  height: 65px;
+  height: 60px;
   font-size: 18px;
   color: #555;
+  position: relative;
   display: block;
+  margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid #ddd;
   text-decoration: none;
 }
 .home-listing a:first-child {
-  border-top-right-radius: 8px;
+  border-top-right-radius: 4px;
   border-top-left-radius: 4px;
 }
 .home-listing a:last-child {
-  border-bottom-right-radius: 8px;
+  border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 .home-listing a:hover {
@@ -92,32 +93,17 @@ Associated Files: homepage.html, homepage.js and homepage.css
   white-space: nowrap;
   vertical-align: baseline;
   margin-top: 5px;
+  margin-bottom: 5px;
   border-radius: 10px;
 }
-
-.fr {
+.pull-right {
   float: right!important;
   background-color: #999999;
-  margin-top: 25px;
-  margin-right: 10px;
 }
-
-.red_fade {
-  background-color: #ff66cc !important;
+.pull-right b {
+    color: #D10D27;
 }
-
-.orange_fade {
-  background-color: #ff9933 !important;
-}
-
-.green_fade {
-  background-color: #66ff66 !important;
-}
-
-.blue_fade {
-  background-color: #66ccff !important;
-}
-
-.purple_fade {
-  background-color: #9933ff !important;
+.pull-left {
+  float: left!important;
+  background-color: #31b0d5;
 }
