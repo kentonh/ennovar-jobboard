@@ -49,31 +49,8 @@ if(Meteor.isClient)
       color: "#6600CC"
     }],
 
-  listing: function() {
-    return Jobs.find().fetch();
-  }
-  // {
-  //    url:"http://jobs.devict.org/jobs/60523/net-developer-at-high-touch-technologies",
-  //    title:".NET Developer",
-  //    company:"High Touch Technologies",
-  //    category:"Design",
-  //    status: "",
-  //    date:"Dec 19"
-  //  },{
-  //    url:"http://jobs.devict.org/jobs/60523/net-developer-at-high-touch-technologies",
-  //    title:"PHP Developer",
-  //    company:"Power Developer Forward",
-  //    category:"Programing",
-  //    status:"Expired",
-  //    date:"Nov 1"
-  //  },{
-  //    url:"http://jobs.devict.org/jobs/60523/net-developer-at-high-touch-technologies",
-  //    title:".NET Developer",
-  //    company:"High Touch Technologies",
-  //    category:"Design",
-  //    status: "",
-  //    date:"Dec 19"
-  //   }
-// ]
+    listing: function() {
+      return Jobs.find().fetch();
+    }
   });
 }

@@ -28,6 +28,7 @@ Associated Files: homepage.html, homepage.js and homepage.css
   white-space: nowrap;
   border-radius: 10px;
   margin-right: 5px;
+  cursor: pointer;
   float: left;
 }
 .home-tags div:hover {
@@ -45,10 +46,9 @@ Associated Files: homepage.html, homepage.js and homepage.css
 }
 
 .home-listing a {
-  height: 60px;
+  height: 65px;
   font-size: 18px;
   color: #555;
-  position: relative;
   display: block;
   margin-bottom: -1px;
   background-color: #fff;
@@ -93,17 +93,12 @@ Associated Files: homepage.html, homepage.js and homepage.css
   white-space: nowrap;
   vertical-align: baseline;
   margin-top: 5px;
-  margin-bottom: 5px;
   border-radius: 10px;
 }
-.pull-right {
+
+.fr {
   float: right!important;
   background-color: #999999;
-}
-.pull-right b {
-    color: #D10D27;
-}
-.pull-left {
-  float: left!important;
-  background-color: #31b0d5;
+  margin-top: 25px;
+  margin-right: 10px;
 }
