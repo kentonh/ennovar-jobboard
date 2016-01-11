@@ -19,7 +19,7 @@
 
 .hdr_home {
   height: 50px;
-  margin-left: 15%;
+  margin-left: 10%;
   float: left;
   color: #FFFFFF;
 }
@@ -32,14 +32,14 @@
 
 .hdr_txt {
   height: 50px;
-  margin-left: 5%;
+  margin-left: 3%;
   line-height: 40px;
   float: left;
 }
 
 .hdr_search, .hdr_create{
   height: 50px;
-  margin-left: 5%;
+  margin-left: 3%;
   float: left;
   color: #FFFFFF;
 }

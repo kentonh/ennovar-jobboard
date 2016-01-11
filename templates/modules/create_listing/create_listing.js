@@ -23,7 +23,7 @@ if (Meteor.isClient)
       {
         case "one":
           category = "Programming";
-          color = "red";
+          color = "#FF0000";
           break;
         case "two":
           category = "Design";
@@ -31,15 +31,15 @@ if (Meteor.isClient)
           break;
         case "three":
           category = "Business Development";
-          color = "yellow";
+          color = "#009900";
           break;
         case "four":
           category = "IT Admin / Support";
-          color = "green";
+          color = "#0000FF";
           break;
         case "five":
           category = "Marketing";
-          color = "blue";
+          color = "#6600CC";
           break;
       }
       if(e.target.apply.value=="website")

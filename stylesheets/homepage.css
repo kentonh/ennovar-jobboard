@@ -50,7 +50,6 @@ Associated Files: homepage.html, homepage.js and homepage.css
   font-size: 18px;
   color: #555;
   display: block;
-  margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid #ddd;
   text-decoration: none;
@@ -101,4 +100,24 @@ Associated Files: homepage.html, homepage.js and homepage.css
   background-color: #999999;
   margin-top: 25px;
   margin-right: 10px;
+}
+
+.red_fade {
+  background-color: #ff66cc !important;
+}
+
+.orange_fade {
+  background-color: #ff9933 !important;
+}
+
+.green_fade {
+  background-color: #66ff66 !important;
+}
+
+.blue_fade {
+  background-color: #66ccff !important;
+}
+
+.purple_fade {
+  background-color: #9933ff !important;
 }
