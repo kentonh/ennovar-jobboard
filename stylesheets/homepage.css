@@ -53,6 +53,7 @@ Associated Files: homepage.html, homepage.js and homepage.css
   margin-top: -1px;
   background-color: #fff;
   border: 1px solid #ddd;
+  margin-top: -1px;
   text-decoration: none;
 }
 .home-listing a:first-child {
