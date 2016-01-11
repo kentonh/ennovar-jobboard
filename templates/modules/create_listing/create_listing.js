@@ -22,23 +22,23 @@ if (Meteor.isClient)
       switch (e.target.category.value)
       {
         case "one":
-          category = "Category 1";
+          category = "Programming";
           color = "red";
           break;
         case "two":
-          category = "Category 2";
+          category = "Design";
           color = "#FF6600";
           break;
         case "three":
-          category = "Category 3";
+          category = "Business Development";
           color = "yellow";
           break;
         case "four":
-          category = "Category 4";
+          category = "IT Admin / Support";
           color = "green";
           break;
         case "five":
-          category = "Category 5";
+          category = "Marketing";
           color = "blue";
           break;
       }
