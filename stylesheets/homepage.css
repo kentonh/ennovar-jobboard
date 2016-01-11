@@ -6,7 +6,7 @@ Associated Files: homepage.html, homepage.js and homepage.css
 */
 .home {
   background-color: #ffffff;
-  margin-left: 30px;
+  margin: 0px 30px 0px 30px;
   overflow: hidden;
 }
 
