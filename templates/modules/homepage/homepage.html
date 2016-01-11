@@ -1,0 +1,31 @@
+<!--
+Author: David Wibowo
+Created: [01/07/2016]
+Title:  homepage
+Associated Files: homepage.html, homepage.js and homepage.css
+-->
+<template name="homepage">
+  <div class="dvhp">
+    <!-- tags category -->
+    <div class="dvhp-tags">
+      {{# each categories}}
+      <a class="dvhp-tags-{{type}}" href="{{link}}">{{name}} <b>{{number}}</b></a>
+      {{/each}}
+    </div>
+    <div class="dvhp-listing">
+
+      {{# each listing}}
+      <a href="{{url}}">
+        <div>
+          <span class="title">{{title}}</span>&nbsp;
+          <span class="company">{{company}}</span>
+        </div>
+        <span class="badge pull-left">{{category}}</span>
+        <span class="badge pull-right"><b>{{status}}</b> {{date}}</span>
+      </a>
+      {{/each}}
+
+    </div>
+  </div>
+
+</template>
