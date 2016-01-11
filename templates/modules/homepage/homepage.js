@@ -51,14 +51,16 @@ if(Meteor.isClient)
 
     listing: function() {
       data = Session.get('categories');
-      console.log('here');
-      if(data.length == 0)
+      if(data != undefined)
       {
-        return Jobs.find({}, {sort: {createdAt: -1}}).fetch();
-      }
-      else
-      {
-        return Jobs.find({category: {$in: data}}, {sort: {createdAt: -1}}).fetch();
+        if(data.length == 0)
+        {
+          return Jobs.find({}, {sort: {createdAt: -1}}).fetch();
+        }
+        else
+        {
+          return Jobs.find({category: {$in: data}}, {sort: {createdAt: -1}}).fetch();
+        }
       }
     }
   });
@@ -75,7 +77,6 @@ if(Meteor.isClient)
       else {
         index = data.indexOf('Programming');
         data.splice(index, 1);
-        console.log(data);
         Session.set('categories', data);
       }
     },
@@ -90,7 +91,6 @@ if(Meteor.isClient)
       else {
         index = data.indexOf('Design');
         data.splice(index, 1);
-        console.log(data);
         Session.set('categories', data);
       }
     },
@@ -105,7 +105,6 @@ if(Meteor.isClient)
       else {
         index = data.indexOf('Business Development');
         data.splice(index, 1);
-        console.log(data);
         Session.set('categories', data);
       }
     },
@@ -120,7 +119,6 @@ if(Meteor.isClient)
       else {
         index = data.indexOf('IT Admin / Support');
         data.splice(index, 1);
-        console.log(data);
         Session.set('categories', data);
       }
     },
@@ -135,7 +133,6 @@ if(Meteor.isClient)
       else {
         index = data.indexOf('Marketing');
         data.splice(index, 1);
-        console.log(data);
         Session.set('categories', data);
       }
     },
