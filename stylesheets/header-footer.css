@@ -37,7 +37,7 @@
   float: left;
 }
 
-.hdr_search {
+.hdr_search, .hdr_create{
   height: 50px;
   margin-left: 5%;
   float: left;
