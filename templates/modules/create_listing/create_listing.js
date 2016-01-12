@@ -5,6 +5,15 @@
 
 if (Meteor.isClient)
 {
+  Template.auth_check.onCreated(function(){
+    if(!Meteor.user()){
+      alert("Please sign-in or create an account first.");
+      window.location.href="/";
+    }else{
+      window.location.href = "/create";
+    }
+  }),
+
   Template.create_listing.events({
     'click .applyByWebsite': function (e, t) {
       $('.applicationURL').css("display","block");
@@ -14,7 +23,7 @@ if (Meteor.isClient)
     },
     'submit form':function(e,t){
       title = e.target.title.value;
-      company = e.target.company.value
+      company = e.target.company.value;
       description = e.target.description.value;
       perks = e.target.perks.value;
       var category;
@@ -50,9 +59,9 @@ if (Meteor.isClient)
         isEmail = true;
         url = Meteor.user().emails[0]["address"];
       }
-
       event.preventDefault();
       Meteor.call("addJob", title, company, category, color, description, perks, isEmail, url, function(error, result){
+
         console.log(result);
         Router.go("/view/" + result)
       });
