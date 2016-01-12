@@ -6,7 +6,7 @@ Associated Files: homepage.html, homepage.js and homepage.css
 */
 .home {
   background-color: #ffffff;
-  margin-left: 30px;
+  margin: 0px 30px 0px 30px;
   overflow: hidden;
 }
 
@@ -28,6 +28,7 @@ Associated Files: homepage.html, homepage.js and homepage.css
   white-space: nowrap;
   border-radius: 10px;
   margin-right: 5px;
+  cursor: pointer;
   float: left;
 }
 .home-tags div:hover {
@@ -45,14 +46,13 @@ Associated Files: homepage.html, homepage.js and homepage.css
 }
 
 .home-listing a {
-  height: 60px;
+  height: 65px;
   font-size: 18px;
   color: #555;
-  position: relative;
   display: block;
-  margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid #ddd;
+  margin-top: -1px;
   text-decoration: none;
 }
 .home-listing a:first-child {
@@ -93,17 +93,32 @@ Associated Files: homepage.html, homepage.js and homepage.css
   white-space: nowrap;
   vertical-align: baseline;
   margin-top: 5px;
-  margin-bottom: 5px;
   border-radius: 10px;
 }
-.pull-right {
+
+.fr {
   float: right!important;
   background-color: #999999;
+  margin-top: 25px;
+  margin-right: 10px;
 }
-.pull-right b {
-    color: #D10D27;
+
+.red_fade {
+  background-color: #ff66cc !important;
 }
-.pull-left {
-  float: left!important;
-  background-color: #31b0d5;
+
+.orange_fade {
+  background-color: #ff9933 !important;
+}
+
+.green_fade {
+  background-color: #66ff66 !important;
+}
+
+.blue_fade {
+  background-color: #66ccff !important;
+}
+
+.purple_fade {
+  background-color: #9933ff !important;
 }
