@@ -18,35 +18,41 @@ if (Meteor.isClient)
       description = e.target.description.value;
       perks = e.target.perks.value;
       var category;
+      var color;
       switch (e.target.category.value)
       {
         case "one":
-          category = "Category 1";
+          category = "Programming";
+          color = "#FF0000";
           break;
         case "two":
-          category = "Category 2";
+          category = "Design";
+          color = "#FF6600";
           break;
         case "three":
-          category = "Category 3";
+          category = "Business Development";
+          color = "#009900";
           break;
         case "four":
-          category = "Category 4";
+          category = "IT Admin / Support";
+          color = "#0000FF";
           break;
         case "five":
-          category = "Category 5";
+          category = "Marketing";
+          color = "#6600CC";
           break;
       }
       if(e.target.apply.value=="website")
       {
         isEmail = false;
         url = e.target.app_URL.value;
-      }else{
+      } else {
         isEmail = true;
         url = Meteor.user().emails[0]["address"];
       }
 
       event.preventDefault();
-      Meteor.call("addJob", title, company, category, description, perks, isEmail, url, function(error, result){
+      Meteor.call("addJob", title, company, category, color, description, perks, isEmail, url, function(error, result){
         console.log(result);
         Router.go("/view/" + result)
       });
