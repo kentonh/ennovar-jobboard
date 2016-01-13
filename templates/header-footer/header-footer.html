@@ -2,9 +2,12 @@
   <div class = "hdr">
     <div class = "hdr_ttl">Jobs in ICT</div>
     <a href = '/'><div class = "hdr_home">Home</div></a>
-    <div class = "hdr_txt"><input type = "search"></div>
-    <a href = '/search'><div class = "hdr_search">Search</div></a>
-    <div class = "hdr_login">{{> loginButtons align="right"}}</div>
+    <div class = "hdr_txt"><input type = "search" id = "search" onsearch = "search()"></div>
+    <div class = "hdr_right">
+      <a href = '/create'><div class = "hdr_create">Create</div></a>
+      <a href = '/authCheck'><div class = "hdr_create">Create</div></a>
+      <div class = "hdr_login">{{> loginButtons align="right"}}</div>
+    </div>
   </div>
 </template>
 

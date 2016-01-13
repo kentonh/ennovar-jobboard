@@ -1,0 +1,29 @@
+<!--
+Author: David Wibowo
+Created: [01/07/2016]
+Title:  homepage
+Associated Files: homepage.html, homepage.js and homepage.css
+-->
+
+<template name = "homepage">
+  <div class="home">
+    <!-- tags category -->
+    <div class="home-tags">
+      {{#each categories}}
+        <div class="home-tag" id = "{{short}}" style = "background-color: {{color}}">{{name}} &nbsp;&nbsp;{{number}}</div>
+      {{/each}}
+    </div>
+
+    <div class="home-listing">
+      {{#each listing}}
+      <a href="/view/{{_id}}">
+        <div class = "home-listing-lft">
+          <div class="home-listing-lft-txt" style = "color: {{color}}">{{title}} <div>&nbsp;-&nbsp;{{company}}</div></div>
+          <span class="badge" style = "background-color: {{color}}">{{category}}</span>
+        </div>
+        <span class="badge fr"><b>{{status}}</b> {{createdAt}}</span>
+      </a>
+      {{/each}}
+    </div>
+  </div>
+</template>
