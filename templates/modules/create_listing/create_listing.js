@@ -14,6 +14,14 @@ if (Meteor.isClient)
     }
   }),
 
+  Template.create_listing.onCreated(function() {
+    if(!Meteor.user())
+    {
+      alert("Bitch Please: Yo Ass Need to Sign in First Sucka");
+      window.location.href="/";
+    }
+  });
+
   Template.create_listing.events({
     'click .applyByWebsite': function (e, t) {
       $('.applicationURL').css("display","block");
