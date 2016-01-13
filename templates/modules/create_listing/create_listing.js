@@ -28,7 +28,7 @@ if (Meteor.isClient)
       perks = e.target.perks.value;
       var category;
       var color;
-      switch (e.target.category.value)
+      switch($('input[name=category]:checked').val())
       {
         case "one":
           category = "Programming";
@@ -51,7 +51,7 @@ if (Meteor.isClient)
           color = "#6600CC";
           break;
       }
-      if(e.target.apply.value=="website")
+      if($('input[name=apply]:checked').val() != "email")
       {
         isEmail = false;
         url = e.target.app_URL.value;
