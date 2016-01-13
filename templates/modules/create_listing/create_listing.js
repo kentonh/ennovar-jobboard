@@ -12,14 +12,6 @@ if (Meteor.isClient)
     }else{
       window.location.href = "/create";
     }
-  }),
-
-  Template.create_listing.onCreated(function() {
-    if(!Meteor.user())
-    {
-      alert("Bitch Please: Yo Ass Need to Sign in First Sucka");
-      window.location.href="/";
-    }
   });
 
   Template.create_listing.events({
