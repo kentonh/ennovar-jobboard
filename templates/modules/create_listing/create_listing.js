@@ -14,6 +14,14 @@ if (Meteor.isClient)
     }
   }),
 
+  Template.create_listing.onCreated(function() {
+    if(!Meteor.user())
+    {
+      alert("Bitch Please: Yo Ass Need to Sign in First Sucka");
+      window.location.href="/";
+    }
+  });
+
   Template.create_listing.events({
     'click .applyByWebsite': function (e, t) {
       $('.applicationURL').css("display","block");
@@ -28,7 +36,7 @@ if (Meteor.isClient)
       perks = e.target.perks.value;
       var category;
       var color;
-      switch (e.target.category.value)
+      switch($('input[name=category]:checked').val())
       {
         case "one":
           category = "Programming";
@@ -51,7 +59,7 @@ if (Meteor.isClient)
           color = "#6600CC";
           break;
       }
-      if(e.target.apply.value=="website")
+      if($('input[name=apply]:checked').val() != "email")
       {
         isEmail = false;
         url = e.target.app_URL.value;
@@ -61,8 +69,6 @@ if (Meteor.isClient)
       }
       event.preventDefault();
       Meteor.call("addJob", title, company, category, color, description, perks, isEmail, url, function(error, result){
-
-        console.log(result);
         Router.go("/view/" + result)
       });
     }
