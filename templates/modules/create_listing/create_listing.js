@@ -61,8 +61,6 @@ if (Meteor.isClient)
       }
       event.preventDefault();
       Meteor.call("addJob", title, company, category, color, description, perks, isEmail, url, function(error, result){
-
-        console.log(result);
         Router.go("/view/" + result)
       });
     }
