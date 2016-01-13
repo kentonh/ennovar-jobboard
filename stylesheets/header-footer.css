@@ -5,12 +5,10 @@
 
 /* Header */
 .hdr {
-  height: 50px;
   width: 100%;
   background-color: #3333ff;
   position: fixed;
   top: 0px;
-  overflow: hidden;
 }
 
 .hdr_ttl {
@@ -28,60 +26,48 @@
 
 .hdr_login {
   height: 50px;
-  margin-left: 3%;
+  margin-left: 5%;
   float: left;
 }
-
-/*  switch to css base on max-width size */
-@media screen and (max-width: 1200px) {
-.hdr_txt {
-  height: 50px;
-  width: 40%;
-  margin-left: 3%;
-  line-height: 40px;
-  float: left;
-}
-}
-@media screen and (max-width: 800px) {
-.hdr_txt {
-  height: 50px;
-  width: 30%;
-  margin-left: 3%;
-  line-height: 40px;
-  float: left;
-}
-}
-@media screen and (max-width: 600px) {
-.hdr_txt {
-  height: 50px;
-  width: 30%;
-  margin-left: 3%;
-  line-height: 44px;
-  float: left;
-
-}
-.hdr_right {
-  display: none;
-  overflow: hidden;
-}
-}
-
-input[type=search] {
+input {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
-
-	text-align: right;
-	cursor: pointer;
-/*	display: block;*/
-	width: 100%;
-/*	letter-spacing: 4px;*/
-/*	text-shadow: 0 0 2px black;*/
-	word-spacing: 20px;
+  width: 100%;
+}
+.hdr_txt {
+  height: 50px;
+  width: 50%;
+  margin-left: 3%;
+  line-height: 40px;
+  float: left;
 }
 
-.hdr_search, .hdr_create{
+@media screen and (max-width: 1300px) {
+  .hdr_txt {
+      width: 40%;
+  }
+}
+@media screen and (max-width: 920px) {
+  .hdr_txt {
+      width: 30%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .hdr_txt {
+      width: 20%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hdr_txt {
+      width: 20%;
+  }
+  .hdr_right {
+    display: none;
+  }
+}
+ .hdr_create{
   height: 50px;
   margin-left: 3%;
   float: left;
@@ -90,7 +76,7 @@ input[type=search] {
 
 div.hdr {
   font-family: 'Lato';
-  font-size: 20px;
+  font-size: 24px;
   color: #FFFFFF;
   line-height: 45px;
 }
