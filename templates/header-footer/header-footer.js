@@ -26,6 +26,10 @@ vph = $(window).height();
 if(Meteor.isClient)
 {
   Template.header.onRendered(function(){
+    if(Session.get('criteria') == undefined)
+    {
+      Session.set('criteria', []);
+    }
     resizeDiv();
   }),
   window.onload = function(event) {
@@ -40,7 +44,16 @@ if(Meteor.isClient)
         window.location.href = "/";
       }
       var text = document.getElementById('search').value;
-      Session.set('criteria', text);
+      Session.setPersistent('criteria', text);
+      if(text != '')
+      {
+        $('#Search').css('display', 'inline-block');
+        $('.Search-dot').css("display", "block");
+      }
+      if(text == '')
+      {
+        $('#Search').css('display', 'none');
+      }
     }
   },
 
