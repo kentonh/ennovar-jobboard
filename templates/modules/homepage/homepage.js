@@ -57,18 +57,18 @@ if(Meteor.isClient)
       {
         if(categories.length == 0 && criteria.length == 0)
         {
-          return Jobs.find({/*'status': 'active'*/}, {sort: {createdAt: -1}}).fetch();
+          return Jobs.find({}, {sort: {createdAt: -1}}).fetch();
         }
         else if(criteria.length == 0)
         {
-          return Jobs.find({$and: [{'status': 'active'}, {'category': {$in: categories}}]}, {sort: {createdAt: -1}}).fetch();
+          return Jobs.find({category: {$in: categories}}, {sort: {createdAt: -1}}).fetch();
         }
       }
       if(criteria != undefined)
       {
         if(criteria.length != 0)
         {
-          return Jobs.find({$and: [{'status': 'active'}, {$or: [{'title': criteria}, {'company': criteria}]} ]}, {sort: {createdAt: -1}}).fetch();
+          return Jobs.find({$or: [{'title': criteria}, {'company': criteria}, {'description': {$regex: criteria}}]}, {sort: {createdAt: -1}}).fetch();
         }
       }
     }
