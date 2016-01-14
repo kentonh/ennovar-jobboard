@@ -74,18 +74,18 @@ if(Meteor.isClient)
       {
         if(categories.length == 0 && criteria.length == 0)
         {
-          return Jobs.find({}, {sort: {createdAt: -1}}).fetch();
+          return Jobs.find({$or: [{'owner': Meteor.userId()}, {'isExpired': false}]}, {sort: {createdAt: -1}}).fetch();
         }
         else if(criteria.length == 0)
         {
-          return Jobs.find({category: {$in: categories}}, {sort: {createdAt: -1}}).fetch();
+          return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()}, {'isExpired': false}]}, {'category': {$in: categories}}]}, {sort: {createdAt: -1}}).fetch();
         }
       }
       if(criteria != undefined)
       {
         if(criteria.length != 0)
         {
-          return Jobs.find({$or: [{'title': criteria}, {'company': criteria}, {'description': {$regex: criteria}}]}, {sort: {createdAt: -1}}).fetch();
+          return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()}, {'isExpired': false}]}, {$or: [{'title': criteria}, {'company': criteria}]} ]}, {sort: {createdAt: -1}}).fetch();
         }
       }
     }
