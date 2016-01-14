@@ -105,7 +105,6 @@ if(Meteor.isClient)
         index = data.indexOf('Programming');
         data.splice(index, 1);
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
     },
     'click #Design': function(e, t) {
@@ -115,13 +114,11 @@ if(Meteor.isClient)
       {
         data.push('Design');
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('Design');
         data.splice(index, 1);
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
     },
     'click #Business': function(e, t) {
@@ -131,13 +128,11 @@ if(Meteor.isClient)
       {
         data.push('Business Development');
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('Business Development');
         data.splice(index, 1);
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
     },
     'click #IT': function(e, t) {
@@ -147,13 +142,11 @@ if(Meteor.isClient)
       {
         data.push('IT Admin / Support');
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('IT Admin / Support');
         data.splice(index, 1);
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
     },
     'click #Marketing': function(e, t) {
@@ -163,13 +156,11 @@ if(Meteor.isClient)
       {
         data.push('Marketing');
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('Marketing');
         data.splice(index, 1);
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
     },
 
