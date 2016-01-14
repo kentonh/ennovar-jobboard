@@ -8,15 +8,25 @@ if(Meteor.isClient)
 {
   Template.homepage.onRendered(function()
   {
-    $('.Search-dot').css("display", "block");
     Session.set('categories', []);
-    if(Session.get('criteria').length == 0)
-    {
-      $('#Search').css('display', 'none');
-    }
+    Session.set('criteria', []);
   })
 
   Template.homepage.helpers({
+    loggedIn: function(){
+      if(!Meteor.userId()){
+        return false;
+      }
+      return true;
+    },
+    userNumber: function(){
+      if(!Meteor.userId()){
+        return 0;
+      }
+      else{
+        return Jobs.find({owner: Meteor.userId()}).count();
+      }
+    },
     categories:[{
       name: "Programming",
       short: "Programming",
@@ -52,33 +62,38 @@ if(Meteor.isClient)
         return Jobs.find({category: "Marketing"}).count();
       },
       color: "#6600CC"
-    },{
-      name:function() {
-        var name = "Search: ";
-        var data = Session.get('criteria');
-        if(data != undefined)
-        {
-          name += data;
-        }
-        return name;
-      },
-      short: 'Search',
-      number: '',
-      color: 'grey'
     }],
 
     listing: function() {
       categories = Session.get('categories');
       criteria = Session.get('criteria');
+      userRequired = false;
       if(categories != undefined)
       {
-        if(categories.length == 0 && criteria.length == 0)
-        {
-          return Jobs.find({$or: [{'owner': Meteor.userId()}, {'isExpired': false}]}, {sort: {createdAt: -1}}).fetch();
+        for(var i = 0; i < categories.length; i++){
+          if(categories[i] == "User"){
+            userRequired = true;
+          }
         }
-        else if(criteria.length == 0)
-        {
-          return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()}, {'isExpired': false}]}, {'category': {$in: categories}}]}, {sort: {createdAt: -1}}).fetch();
+        if(userRequired){
+          if(categories.length == 1 && criteria.length == 0)
+          {
+            return Jobs.find({'owner': Meteor.userId()}, {sort: {createdAt: -1}}).fetch();
+          }
+          else if(criteria.length == 0)
+          {
+            return Jobs.find({$and: [{'owner': Meteor.userId()}, {'category': {$in: categories}}]}, {sort: {createdAt: -1}}).fetch();
+          }
+        }
+        else{
+          if(categories.length == 0 && criteria.length == 0)
+          {
+            return Jobs.find({$or: [{'owner': Meteor.userId()}, {'isExpired': false}]}, {sort: {createdAt: -1}}).fetch();
+          }
+          else if(criteria.length == 0)
+          {
+            return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()}, {'isExpired': false}]}, {'category': {$in: categories}}]}, {sort: {createdAt: -1}}).fetch();
+          }
         }
       }
       if(criteria != undefined)
@@ -99,11 +114,13 @@ if(Meteor.isClient)
       {
         data.push('Programming');
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('Programming');
         data.splice(index, 1);
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
     },
     'click #Design': function(e, t) {
@@ -113,11 +130,13 @@ if(Meteor.isClient)
       {
         data.push('Design');
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('Design');
         data.splice(index, 1);
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
     },
     'click #Business': function(e, t) {
@@ -127,11 +146,13 @@ if(Meteor.isClient)
       {
         data.push('Business Development');
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('Business Development');
         data.splice(index, 1);
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
     },
     'click #IT': function(e, t) {
@@ -141,11 +162,13 @@ if(Meteor.isClient)
       {
         data.push('IT Admin / Support');
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('IT Admin / Support');
         data.splice(index, 1);
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
     },
     'click #Marketing': function(e, t) {
@@ -155,21 +178,35 @@ if(Meteor.isClient)
       {
         data.push('Marketing');
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('Marketing');
         data.splice(index, 1);
         Session.set('categories', data);
+        Session.set('criteria', []);
       }
     },
-
-    'click #Search': function(e, t) {
-      Session.set('criteria', []);
-      $('#Search').css('display', 'none');
+    'click #User': function(e, t) {
+      $('#User').toggleClass('user_fade');
+      data = Session.get('categories');
+      if(data.indexOf("User") == -1)
+      {
+        data.push('User');
+        Session.set('categories', data);
+        Session.set('criteria', []);
+      }
+      else {
+        index = data.indexOf('User');
+        data.splice(index, 1);
+        Session.set('categories', data);
+        Session.set('criteria', []);
+      }
     },
 
     'click .home-tag': function(e,t){
       var dot = "."+$(e.target).attr('id')+"-dot";
+
       if($(dot).css("display") == "none"){
         $(dot).css("display", "block");
       }else{
