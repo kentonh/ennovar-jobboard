@@ -99,7 +99,6 @@ if(Meteor.isClient)
       {
         data.push('Programming');
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('Programming');
