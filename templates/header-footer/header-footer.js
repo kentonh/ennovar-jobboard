@@ -35,7 +35,7 @@ if(Meteor.isClient)
     var criteria = Session.get('criteria');
     if(criteria != undefined)
     {
-      if(window.location.href != '/')
+      if(window.location.pathname  != '/')
       {
         window.location.href = "/";
       }
