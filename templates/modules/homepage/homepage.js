@@ -7,10 +7,15 @@ Associated Files: homepage.html, homepage.js and homepage.css
 if(Meteor.isClient)
 {
   Template.homepage.onRendered(function()
-  {
-    Session.set('categories', []);
-    Session.set('criteria', []);
-  })
+    {
+      $('.Search-dot').css("display", "block");
+      Session.set('categories', []);
+      Session.set('criteria', []);
+      if(Session.get('criteria').length == 0)
+      {
+        $('#Search').css('display', 'none');
+      }
+    })
 
   Template.homepage.helpers({
     loggedIn: function(){
@@ -62,6 +67,20 @@ if(Meteor.isClient)
         return Jobs.find({category: "Marketing"}).count();
       },
       color: "#6600CC"
+    },
+    {
+      name:function() {
+        var name = "Search: ";
+        var data = Session.get('criteria');
+        if(data != undefined)
+        {
+          name += data;
+        }
+          return name;
+      },
+      short: 'Search',
+      number: '',
+      color: 'grey'
     }],
 
     listing: function() {
@@ -186,6 +205,10 @@ if(Meteor.isClient)
         Session.set('categories', data);
         Session.set('criteria', []);
       }
+    },
+    'click #Search': function(e, t) {
+      Session.set('criteria', []);
+      $('#Search').css('display', 'none');
     },
     'click #User': function(e, t) {
       $('#User').toggleClass('user_fade');
