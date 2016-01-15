@@ -237,5 +237,12 @@ if(Meteor.isClient)
       }
 
     },
+    'click button': function(e,t){
+      window.location.href = "/";
+    }
   });
+
+  Handlebars.registerHelper("isOwner", function(owner){
+    return Meteor.userId() == owner;
+  })
 }
