@@ -28,6 +28,9 @@ Associated Files: homepage.html, homepage.js and homepage.css
         {{#if isExpired}}
         <button class="home-listing-renew" onclick="Meteor.call('renewJob', '{{_id}}')">Renew</button>
         {{/if}}
+        {{#if isOwner owner}}
+        <button class="home-listing-delete" onclick="Meteor.call('deleteJob', '{{_id}}')">Delete</button>
+        {{/if}}
       </a>
       {{/each}}
     </div>
