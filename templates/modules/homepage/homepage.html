@@ -10,10 +10,10 @@ Associated Files: homepage.html, homepage.js and homepage.css
     <!-- tags category -->
     <div class="home-tags">
       {{#each categories}}
-        <div class="home-tag" id = "{{short}}" style = "background-color: {{color}}"><div class="{{short}}-dot dot"><i class="fa fa-times"></i></div>{{name}} &nbsp;&nbsp;{{number}}</div>
+        <div class="home-tag" id = "{{short}}" style = "background-color: {{color}}"><div class="{{short}}-dot dot"><i class="fa fa-times" id="{{short}}-dot"></i></div>{{name}} &nbsp;&nbsp;{{number}}</div>
       {{/each}}
       {{#if loggedIn}}
-        <div class="home-tag" id = "User" style = "background-color: #000000"><div class="User-dot dot"><i class="fa fa-times"></i></div>Your listings &nbsp;&nbsp;{{userNumber}}</div>
+        <div class="home-tag" id = "User" style = "background-color: #000000"><div class="User-dot dot"><i class="fa fa-times User-dot" id="User-dot"></i></div>Your listings &nbsp;&nbsp;{{userNumber}}</div>
       {{/if}}
     </div>
 
