@@ -331,6 +331,19 @@ if(Meteor.isClient)
       }
 
     },
+
+    'click .fa-times': function(e,t){
+
+      var dot = "."+$(e.target).attr('id');
+
+      if($(dot).css("display") == "none"){
+        $(dot).css("display", "block");
+      }else{
+        $(dot).css("display", "none");
+      }
+
+    },
+
     'click button': function(e,t){
       event.preventDefault();
     }
