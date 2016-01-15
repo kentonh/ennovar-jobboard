@@ -9,15 +9,15 @@
     {{#if isOwner}}
     <div class="buttons">
       {{#if isExpired}}
-      <button type="button" class="renew-btn btn-top" onclick="Meteor.call('renewJob', '{{_id}}')">Renew</button>
+      <button type="button" class="renew-btn btn-top">Renew</button>
       {{/if}}
-      <button type="button" class="edit-btn btn-top" onclick="window.location.href='/edit/{{_id}}'">Edit</button>
-      <button type="button" class="delete-btn btn-top" onclick="showConfirm()">Delete</button>
+      <button type="button" class="edit-btn btn-top">Edit</button>
+      <button type="button" class="delete-btn btn-top">Delete</button>
     </div>
     <div class="confirm">
       <div class="confirm-text">Are you sure?</div>
-      <button type="button" class="yes-btn btn-top" onclick="confirmDelete()">Yes</button>
-      <button type="button" class="no-btn btn-top" onclick="hideConfirm()">No</button>
+      <button type="button" class="yes-btn btn-top">Yes</button>
+      <button type="button" class="no-btn btn-top">No</button>
     </div>
     {{/if}}
     <div class=titlebox>
