@@ -160,10 +160,8 @@ if(Meteor.isClient)
             {
               // No Category, Search, No User
               keyword = new RegExp(criteria, 'i');
-              return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()},
-              {'isExpired': false}]},{$or: [{'title': {$regex: keyword}},
-              {'company': {$regex: keyword}},
-              {'description': {$regex: keyword}}]}]},{sort: {createdAt: -1}}).fetch();
+              return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()}, {'isExpired': false}]},{$or: [{'title': {$regex: keyword}}, {'company': {$regex: keyword}}, {'description': {$regex: keyword}}]}]},{sort: {createdAt: -1}}
+              ).fetch();
             }
             // No Search Criteria selected
             else
@@ -327,4 +325,8 @@ if(Meteor.isClient)
       event.preventDefault();
     }
   });
+
+  Handlebars.registerHelper("isOwner", function(owner){
+    return Meteor.userId() == owner;
+  })
 }
