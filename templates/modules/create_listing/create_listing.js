@@ -89,6 +89,9 @@ if (Meteor.isClient)
       {
         isEmail = false;
         url = e.target.app_URL.value;
+        if (url.search(/^http[s]?\:\/\//) == -1) {
+          url = 'http://' + url;
+        }
       } else {
         isEmail = true;
         url = Meteor.user().emails[0]["address"];
