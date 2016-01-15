@@ -108,12 +108,15 @@ if(Meteor.isClient)
             if(criteria.length != 0)
             {
               // Category, Search, User
-              console.log('Category, Search, User');
+              keyword = new RegExp(criteria, 'i');
+              return Jobs.find({$and: [{'owner': Meteor.userId()},{$or: [{'title': {$regex: keyword}},{'company': {$regex: keyword}}, {'description': {$regex: keyword}}]}, {'category': {$in: categories}}]},{sort: {createdAt: -1}}).fetch();
             }
             else
             {
               // Category, No Search, User
-              console.log('Category, No Search, User');
+              return Jobs.find({$and: [{'owner': Meteor.userId()},
+              {'category': {$in: categories}}]},
+              {sort: {createdAt: -1}}).fetch();
             }
           }
           // No Categories selected
@@ -123,13 +126,18 @@ if(Meteor.isClient)
             if(criteria.length != 0)
             {
               // No Category, Search, User
-              console.log('No Category, Search, User');
+              keyword = new RegExp(criteria, 'i');
+              return Jobs.find({$and: [{'owner': Meteor.userId()},
+              {$or: [{'title': {$regex: keyword}},{'company': {$regex: keyword}},
+              {'description': {$regex: keyword}}]}]},
+              {sort: {createdAt: -1}}).fetch();
             }
             // No Search Criteria selected
             else
             {
               // No Category, No Search, User
-              console.log('No Category, No Search, User');
+              return Jobs.find({'owner': Meteor.userId()},
+              {sort: {createdAt: -1}}).fetch();
             }
           }
         }
@@ -144,12 +152,15 @@ if(Meteor.isClient)
             {
               // Category, Search, No User
               console.log('Category, Search, No User');
+              keyword = new RegExp(criteria, 'i');
+              return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()}, {'isExpired': false}]},{$or: [{'title': {$regex: keyword}},{'company': {$regex: keyword}}, {'description': {$regex: keyword}}]}, {'category': {$in: categories}}]},{sort: {createdAt: -1}}).fetch();
             }
             else
             {
               // Category, No Search, No User
-              return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()}, {'isExpired': false}]},
-              {'category': {$in: categories}}]}, {sort: {createdAt: -1}}).fetch();
+              return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()},
+              {'isExpired': false}]}, {'category': {$in: categories}}]},
+              {sort: {createdAt: -1}}).fetch();
             }
           }
           // No Categories selected
@@ -160,8 +171,10 @@ if(Meteor.isClient)
             {
               // No Category, Search, No User
               keyword = new RegExp(criteria, 'i');
-              return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()}, {'isExpired': false}]},{$or: [{'title': {$regex: keyword}}, {'company': {$regex: keyword}}, {'description': {$regex: keyword}}]}]},{sort: {createdAt: -1}}
-              ).fetch();
+              return Jobs.find({$and: [{$or: [{'owner': Meteor.userId()},
+              {'isExpired': false}]},{$or: [{'title': {$regex: keyword}},
+              {'company': {$regex: keyword}}, {'description': {$regex: keyword}}]}]},
+              {sort: {createdAt: -1}}).fetch();
             }
             // No Search Criteria selected
             else
@@ -301,13 +314,11 @@ if(Meteor.isClient)
       {
         data.push('User');
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
       else {
         index = data.indexOf('User');
         data.splice(index, 1);
         Session.set('categories', data);
-        Session.set('criteria', []);
       }
     },
 
