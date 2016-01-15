@@ -48,12 +48,14 @@
   margin-top:10px;
   margin-bottom: 10px;
   font-size: 16px;
+  white-space: pre-line;
 }
 
 .perks {
   margin-top:10px;
   margin-bottom:10px;
   font-size: 16px;
+  white-space: pre-line;
 }
 
 .aplication {
