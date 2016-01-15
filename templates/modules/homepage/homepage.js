@@ -324,7 +324,6 @@ if(Meteor.isClient)
 
     'click .home-tag': function(e,t){
       var dot = "."+$(e.target).attr('id')+"-dot";
-
       if($(dot).css("display") == "none"){
         $(dot).css("display", "block");
       }else{
