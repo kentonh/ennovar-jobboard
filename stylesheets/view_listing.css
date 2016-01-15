@@ -7,6 +7,22 @@
   margin-left: 30px;
 }
 
+.buttons{
+  margin: 10px 0px;
+}
+
+.btn-top{
+  margin: 0px 5px;
+}
+
+.confirm{
+  display: none;
+}
+
+.confirm-text{
+  float: left;
+}
+
 .titlebox {
   border-bottom-style: solid;
   border-bottom-width: 1px;
