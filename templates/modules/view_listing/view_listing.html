@@ -6,6 +6,20 @@
 <template name="view_listing">
   <div class = "view">
     {{#each job}}
+    {{#if isOwner}}
+    <div class="buttons">
+      {{#if isExpired}}
+      <button type="button" class="renew-btn btn-top" onclick="Meteor.call('renewJob', '{{_id}}')">Renew</button>
+      {{/if}}
+      <button type="button" class="edit-btn btn-top" onclick="window.location.href='/edit/{{_id}}'">Edit</button>
+      <button type="button" class="delete-btn btn-top" onclick="showConfirm()">Delete</button>
+    </div>
+    <div class="confirm">
+      <div class="confirm-text">Are you sure?</div>
+      <button type="button" class="yes-btn btn-top" onclick="confirmDelete()">Yes</button>
+      <button type="button" class="no-btn btn-top" onclick="hideConfirm()">No</button>
+    </div>
+    {{/if}}
     <div class=titlebox>
       <div class="title">
         {{title}}
@@ -28,7 +42,7 @@
       {{#if isEmail}}
       Please send an email with your resume attached to: <a href={{url}}>{{url}}</a>
       {{else}}
-      <button type="button" onclick="window.location.href='{{url}}'">Click Here</button>
+      <button type="button" onclick="window.location.replace('{{url}}')">Click Here</button>
       {{/if}}
     </div>
     {{/each}}

@@ -5,15 +5,6 @@
 
 if (Meteor.isClient)
 {
-  Template.auth_check.onCreated(function(){
-    if(!Meteor.user()){
-      alert("Please sign-in or create an account first.");
-      window.location.href="/";
-    }else{
-      window.location.href = "/create";
-    }
-  });
-
   Template.create_listing.onRendered(function(){
     var url = window.location.pathname;
     urlArray = url.split('/');
@@ -118,6 +109,9 @@ if (Meteor.isClient)
       {
         isEmail = false;
         url = e.target.app_URL.value;
+        if (url.search(/^http[s]?\:\/\//) == -1) {
+          url = 'http://' + url;
+        }
         appMethod = true;
       } else if($('input[name=apply]:checked').val() == "email"){
         isEmail = true;
