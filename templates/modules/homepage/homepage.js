@@ -322,7 +322,7 @@ if(Meteor.isClient)
 
     },
     'click button': function(e,t){
-      window.location.href = "/";
+      event.preventDefault();
     }
   });
 
