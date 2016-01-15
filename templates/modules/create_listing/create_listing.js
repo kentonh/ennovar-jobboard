@@ -56,58 +56,90 @@ if (Meteor.isClient)
       $('.applicationURL').css("display","none");
     },
     'submit form':function(e,t){
+      var titleEntered = false;
+      var companyEntered = false;
+      var descriptionEntered = false;
       title = e.target.title.value;
       company = e.target.company.value;
       description = e.target.description.value;
       perks = e.target.perks.value;
       var category;
       var color;
+      if(title !=""){
+        titleEntered = true;
+      }
+      if(company!=""){
+        companyEntered = true;
+      }
+      if(description!=""){
+        descriptionEntered = true;
+      }
+      var catSelected = false;
       switch($('input[name=category]:checked').val())
       {
         case "one":
           category = "Programming";
           color = "#FF0000";
+          catSelected = true;
           break;
         case "two":
           category = "Design";
           color = "#FF6600";
+          catSelected = true;
           break;
         case "three":
           category = "Business Development";
           color = "#009900";
+          catSelected = true;
           break;
         case "four":
           category = "IT Admin / Support";
           color = "#0000FF";
+          catSelected = true;
           break;
         case "five":
           category = "Marketing";
           color = "#6600CC";
+          catSelected = true;
           break;
       }
-      if($('input[name=apply]:checked').val() != "email")
+
+      var appMethod = false;
+      if($('input[name=apply]:checked').val() == "website")
       {
         isEmail = false;
         url = e.target.app_URL.value;
         if (url.search(/^http[s]?\:\/\//) == -1) {
           url = 'http://' + url;
         }
-      } else {
+        appMethod = true;
+      } else if($('input[name=apply]:checked').val() == "email"){
         isEmail = true;
         url = Meteor.user().emails[0]["address"];
+        appMethod = true;
       }
-      event.preventDefault();
-      var currentUrl = window.location.pathname;
-      urlArray = currentUrl.split('/');
-      if(urlArray[1] == "create"){
-        Meteor.call("addJob", title, company, category, color, description, perks, isEmail, url, function(error, result){
-          Router.go("/view/" + result)
-        });
-      }
-      else{
-        Meteor.call("editJob", urlArray[2], title, company, category, color, description, perks, isEmail, url, function(error, result){
-          Router.go("/view/" + result)
-        });
+      e.preventDefault();
+      if(appMethod && catSelected && titleEntered && companyEntered && descriptionEntered){
+        var currentUrl = window.location.pathname;
+        urlArray = currentUrl.split('/');
+        if(urlArray[1] == "create"){
+          Meteor.call("addJob", title, company, category, color, description, perks, isEmail, url, function(error, result){
+            Router.go("/view/" + result)
+          });
+        }
+        else{
+          Meteor.call("editJob", urlArray[2], title, company, category, color, description, perks, isEmail, url, function(error, result){
+            Router.go("/view/" + result)
+          });
+        }
+      }else{
+        var string = "Please Ensure the following fields are completed:\n\n";
+        if(!titleEntered){ string = string+"-Job Title\n";}
+        if(!companyEntered){ string = string+"-Company Name\n";}
+        if(!descriptionEntered){string = string+"-Job Description\n";}
+        if(!catSelected){string = string+"-Job Category\n";}
+        if(!appMethod){string = string+"-Application Method\n";}
+        alert(string);
       }
     }
   });
