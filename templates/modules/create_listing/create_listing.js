@@ -14,6 +14,49 @@ if (Meteor.isClient)
     }
   });
 
+  Template.create_listing.onRendered(function(){
+    var url = window.location.pathname;
+    urlArray = url.split('/');
+    if(urlArray[1] == "edit"){
+      job = Jobs.find({_id: urlArray[2]}).fetch();
+      if(job[0].owner != Meteor.userId()){
+        alert("You are not the owner of this job listing");
+        window.location.href="/view/" + urlArray[2];
+      }
+      else{
+        $('input[name=title]').val(job[0].title);
+        $('input[name=company]').val(job[0].company);
+        $('textarea[name=description]').val(job[0].description);
+        $('textarea[name=perks]').val(job[0].perks);
+        $('input[name=app_URL]').val(job[0].url);
+        switch(job[0].category){
+          case "Programming":
+            $('input[name=category][value=one]').prop("checked", true);
+            break;
+          case "Design":
+            $('input[name=category][value=two]').prop("checked", true);
+            break;
+          case "Business Development":
+            $('input[name=category][value=three]').prop("checked", true);
+            break;
+          case "IT Admin / Support":
+            $('input[name=category][value=four]').prop("checked", true);
+            break;
+          case "Marketing":
+            $('input[name=category][value=five]').prop("checked", true);
+            break;
+        }
+        if(job[0].isEmail){
+          $('input[name=apply][value=email]').prop("checked", true);
+        }
+        else{
+          $('input[name=apply][value-website]').prop("checked", true);
+          $('.applicationURL').css("display","block")
+        }
+      }
+    }
+  })
+
   Template.create_listing.events({
     'click .applyByWebsite': function (e, t) {
       $('.applicationURL').css("display","block");
@@ -60,9 +103,18 @@ if (Meteor.isClient)
         url = Meteor.user().emails[0]["address"];
       }
       event.preventDefault();
-      Meteor.call("addJob", title, company, category, color, description, perks, isEmail, url, function(error, result){
-        Router.go("/view/" + result)
-      });
+      var currentUrl = window.location.pathname;
+      urlArray = currentUrl.split('/');
+      if(urlArray[1] == "create"){
+        Meteor.call("addJob", title, company, category, color, description, perks, isEmail, url, function(error, result){
+          Router.go("/view/" + result)
+        });
+      }
+      else{
+        Meteor.call("editJob", urlArray[2], title, company, category, color, description, perks, isEmail, url, function(error, result){
+          Router.go("/view/" + result)
+        });
+      }
     }
   });
 }
