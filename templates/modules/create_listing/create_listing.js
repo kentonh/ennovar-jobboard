@@ -14,13 +14,6 @@ if (Meteor.isClient)
     }
   });
 
-  Template.create_listing.onCreated(function(){
-    if(!Meteor.user()){
-      alert("Please sign-in or create an account first.");
-      window.location.href="/";
-    }
-  });
-
   Template.create_listing.onRendered(function(){
     var url = window.location.pathname;
     urlArray = url.split('/');
