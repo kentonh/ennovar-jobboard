@@ -41,7 +41,7 @@ if (Meteor.isClient)
           $('input[name=apply][value=email]').prop("checked", true);
         }
         else{
-          $('input[name=apply][value-website]').prop("checked", true);
+          $('input[name=apply][value=website]').prop("checked", true);
           $('.applicationURL').css("display","block")
         }
       }
