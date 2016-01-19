@@ -33,7 +33,7 @@ if (Meteor.isClient){
       var currentUrl = window.location.pathname;
       urlArray = currentUrl.split('/');
       job = Jobs.find({_id: urlArray[2]}).fetch();
-      Router.go('/edit/', job[0]._id);
+      Router.go('/edit/' + job[0]._id);
     },
     'click .delete-btn': function(){
       $('.confirm').show();
