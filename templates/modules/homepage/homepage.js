@@ -29,42 +29,79 @@ if(Meteor.isClient)
         return 0;
       }
       else{
-        return Jobs.find({owner: Meteor.userId()}).count();
+        var categoryArray = Session.get('categories');
+        if (categoryArray.length > 0){
+          var userCount = 0;
+          Jobs.find({owner: Meteor.userId()}).forEach(function(userListing){
+            if(categoryArray.indexOf(userListing.category) != -1 || (categoryArray.indexOf("User") != -1 && categoryArray.length == 1)){
+              userCount += 1;
+            }
+          });
+          return userCount;
+        }
+        else{
+          return Jobs.find({owner: Meteor.userId()}).count();
+        }
       }
     },
     categories:[{
       name: "Programming",
       short: "Programming",
       number: function() {
-        return Jobs.find({category: "Programming"}).count();
+        var array = Session.get('categories');
+        if(array.length == 0 || array.indexOf(this.name)!= -1){
+          return Jobs.find({category: this.name}).count();
+        }else {
+          return 0;
+        }
       },
       color: "#FF0000"
     },{
       name: "Design",
       short: "Design",
       number: function() {
-        return Jobs.find({category: "Design"}).count();
+        var array = Session.get('categories');
+        if(array.length == 0 || array.indexOf(this.name)!= -1){
+          return Jobs.find({category: this.name}).count();
+        }else {
+          return 0;
+        }
       },
       color: "#FF6600"
     },{
       name:"Business Development",
       short: "Business",
       number: function() {
-        return Jobs.find({category: "Business Development"}).count();
+        var array = Session.get('categories');
+        if(array.length == 0 || array.indexOf(this.name)!= -1){
+          return Jobs.find({category: this.name}).count();
+        }else {
+          return 0;
+        }
       },
       color: "#009900"
     },{
       name: "IT Admin / Support",
       short: "IT",
       number: function() {
-        return Jobs.find({category: "IT Admin / Support"}).count();
+        var array = Session.get('categories');
+        if(array.length == 0 || array.indexOf(this.name)!= -1){
+          return Jobs.find({category: this.name}).count();
+        }else {
+          return 0;
+        }
       },
       color: "#0000FF"
     },{
       name:"Marketing",
       short: "Marketing",
       number: function() {
-        return Jobs.find({category: "Marketing"}).count();
+        var array = Session.get('categories');
+        if(array.length == 0 || array.indexOf(this.name)!= -1){
+          return Jobs.find({category: this.name}).count();
+        }else {
+          return 0;
+        }
       },
       color: "#6600CC"
     },
