@@ -6,18 +6,17 @@ Associated Files: homepage.html, homepage.js and homepage.css
 */
 .home {
   background-color: #ffffff;
-  margin: 0px 30px 0px 30px;
+  margin: 0px 30px;
+  max-width: 1140px;
   overflow: hidden;
 }
 
 .dot{
-  margin-top: 2px;
-  border-radius: 100%;
   height:10px;
   width: 10px;
-  background-color: #ffffff;
   float:left;
   display: none;
+  margin-right:5px;
 }
 
 .home-tags {
@@ -40,10 +39,6 @@ Associated Files: homepage.html, homepage.js and homepage.css
   margin-right: 5px;
   cursor: pointer;
   float: left;
-}
-.home-tags div:hover {
-  color:#ffffff;
-  border: 1px solid #999;
 }
 
 .home-listing {
@@ -91,6 +86,22 @@ Associated Files: homepage.html, homepage.js and homepage.css
   display: inline-block;
 }
 
+.home-listing-renew {
+  display: inline-block;
+  padding: 2px 10px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 15px;
+}
+
+.home-listing-delete {
+  display: inline-block;
+  padding: 2px 10px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 15px;
+}
+
 .badge {
   display: inline-block;
   min-width: 10px;
@@ -131,4 +142,8 @@ Associated Files: homepage.html, homepage.js and homepage.css
 
 .purple_fade {
   background-color: #9933ff !important;
+}
+
+.user_fade {
+  background-color: #444444 !important;
 }
