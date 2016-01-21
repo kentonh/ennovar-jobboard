@@ -123,7 +123,9 @@ if (Meteor.isClient)
         var currentUrl = window.location.pathname;
         urlArray = currentUrl.split('/');
         if(urlArray[1] == "create"){
+
           Meteor.call("addJob", title, company, category, color, description, perks, isEmail, url, function(error, result){
+            //Redirect to view listing
             Router.go("/view/" + result)
           });
         }
