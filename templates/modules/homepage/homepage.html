@@ -10,8 +10,11 @@ Associated Files: homepage.html, homepage.js and homepage.css
     <!-- tags category -->
     <div class="home-tags">
       {{#each categories}}
-        <div class="home-tag" id = "{{short}}" style = "background-color: {{color}}">{{name}} &nbsp;&nbsp;{{number}}</div>
+        <div class="home-tag" id = "{{short}}" style = "background-color: {{color}}"><div class="{{short}}-dot dot"><i class="fa fa-times" id="{{short}}-dot"></i></div>{{name}} &nbsp;&nbsp;{{number}}</div>
       {{/each}}
+      {{#if loggedIn}}
+        <div class="home-tag" id = "User" style = "background-color: #000000"><div class="User-dot dot"><i class="fa fa-times User-dot" id="User-dot"></i></div>Your listings &nbsp;&nbsp;{{userNumber}}</div>
+      {{/if}}
     </div>
 
     <div class="home-listing">
@@ -21,7 +24,13 @@ Associated Files: homepage.html, homepage.js and homepage.css
           <div class="home-listing-lft-txt" style = "color: {{color}}">{{title}} <div>&nbsp;-&nbsp;{{company}}</div></div>
           <span class="badge" style = "background-color: {{color}}">{{category}}</span>
         </div>
-        <span class="badge fr"><b>{{status}}</b> {{createdAt}}</span>
+        <span class="badge fr">{{#if isExpired}}Expired. Created on {{/if}}{{month}}/{{day}}</span>
+        {{#if isExpired}}
+        <button class="home-listing-renew" onclick="Meteor.call('renewJob', '{{_id}}')">Renew</button>
+        {{/if}}
+        {{#if isOwner owner}}
+        <button class="home-listing-delete" onclick="Meteor.call('deleteJob', '{{_id}}')">Delete</button>
+        {{/if}}
       </a>
       {{/each}}
     </div>
