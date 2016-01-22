@@ -40,9 +40,38 @@
     <div class="url">
       <div class=heading>To apply:</div>
       {{#if isEmail}}
-      Please send an email with your resume attached to: <a href={{url}}>{{url}}</a>
+      <div class="emailForm">
+        <form>
+          <div class="close">X</div>
+          <div class="effirst">
+            Name*:<br>
+            <input type="text" name="name" id="name">
+          </div>
+          <div class="efrest">
+            Email*:<br>
+            <input type="text" name="email" id="email">
+          </div>
+          <div class="efresty">
+            Phone:<br>
+            <input type="text" name="phone">
+          </div>
+          <div class="efrest" >
+            Message*:<br>
+            <textarea rows="20" cols="80" id="message" name="message"></textarea>
+          </div>
+          <div class="efrest">
+            Resume link*:<br>
+            <input type="text" name="resumelink" id="resumelink">
+          </div>
+          <div class="efrest">
+            <input type="submit" value="Submit" id="submit">  *Required
+          </div>
+        </form>
+      </div>
+      <button type="button" id="emailform">Click Here</button>
+      <!--Please send an email with your resume attached to: <a href={{url}}>{{url}}</a>-->
       {{else}}
-      <button type="button" onclick="window.location.replace('{{url}}')">Click Here</button>
+      <button type="button" onclick="window.location.href='{{url}}'">Click Here</button>
       {{/if}}
     </div>
     {{/each}}

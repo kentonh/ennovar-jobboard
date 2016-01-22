@@ -47,6 +47,22 @@ if (Meteor.isClient){
     },
     'click .no-btn': function(){
       $('.confirm').hide();
-    }
+    },
+    'click #emailform': function() {
+      $('.emailForm').show();
+      $('#name').focus();
+    },
+    'click .close': function() {
+      $('.emailForm').hide();
+    },
+    'click #submit': function() {
+      if ($('#name').val().trim().length > 0 && $('#email').val().trim().length > 0 &&
+          $('#message').val().trim().length > 0 && $('#resumelink').val().trim().length > 0) {
+        return true;
+      } else {
+        alert("Name, Email, Message, and Resume link are required");
+        return false;
+      }
+    },
   })
 }
