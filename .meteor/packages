@@ -20,3 +20,8 @@ iron:router
 accounts-ui
 accounts-password
 u2622:persistent-session
+raix:rssfeed
+email
+check
+ejson
+markdown

@@ -24,18 +24,18 @@
       <div class="title">
         {{title}}
       </div>
-      <div class="publishedDate">{{createdAt}}</div>
+      <div class="publishedDate">Posted on: {{createdAt}}</div>
       <div class="info">
         <span class="company">{{company}}</span> - <span class="category">{{category}}</span>
       </div>
     </div>
     <div class="description">
       <div class=heading>Description:</div>
-      {{description}}
+      {{#markdown}}{{description}}{{/markdown}}
     </div>
     <div class="perks">
       <div class=heading>Perks:</div>
-      {{perks}}
+      {{#markdown}}{{perks}}{{/markdown}}
     </div>
     <div class="url">
       <div class=heading>To apply:</div>
@@ -53,7 +53,7 @@
           </div>
           <div class="efresty">
             Phone:<br>
-            <input type="text" name="phone">
+            <input type="text" name="phone" id="phone">
           </div>
           <div class="efrest" >
             Message*:<br>
@@ -64,7 +64,7 @@
             <input type="text" name="resumelink" id="resumelink">
           </div>
           <div class="efrest">
-            <input type="submit" value="Submit" id="submit">  *Required
+            <input type="submit" id="submit">  *Required
           </div>
         </form>
       </div>
