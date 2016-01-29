@@ -171,7 +171,14 @@ if(Meteor.isClient)
             });
             return num;
           }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
-            return Jobs.find({category: this.name}).count();
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+            })
+            return num;
           }else {
             return 0;
           }
@@ -222,7 +229,14 @@ if(Meteor.isClient)
             });
             return num;
           }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
-            return Jobs.find({category: this.name}).count();
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+            })
+            return num;
           }else {
             return 0;
           }
@@ -273,7 +287,14 @@ if(Meteor.isClient)
             });
             return num;
           }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
-            return Jobs.find({category: this.name}).count();
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+            })
+            return num;
           }else {
             return 0;
           }
@@ -305,7 +326,14 @@ if(Meteor.isClient)
               });
               return num;
             }
-            return Jobs.find({category: this.name}).count();
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+              return num;
+            })
           }else {
             return 0;
           }
@@ -324,7 +352,14 @@ if(Meteor.isClient)
             });
             return num;
           }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
-            return Jobs.find({category: this.name}).count();
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+            })
+            return num;
           }else {
             return 0;
           }
