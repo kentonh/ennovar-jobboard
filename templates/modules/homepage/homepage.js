@@ -4,12 +4,15 @@ Created: [01/07/2016]
 Title:  homepage
 Associated Files: homepage.html, homepage.js and homepage.css
 */
+var searchNumber = 0;
 if(Meteor.isClient)
 {
+  Template.homepage.onCreated(function(){
+    Session.set('categories', []);
+  })
   Template.homepage.onRendered(function()
     {
       $('.Search-dot').css("display", "block");
-      Session.set('categories', []);
       Session.set('criteria', []);
       if(Session.get('criteria').length == 0)
       {
@@ -20,7 +23,13 @@ if(Meteor.isClient)
   Template.homepage.helpers({
     loggedIn: function(){
       if(!Meteor.userId()){
+        var categoryArray = Session.get('categories');
+        if(categoryArray.indexOf('User') != -1){
+          categoryArray.splice(categoryArray.indexOf('User'), 1);
+          Session.set('categories', categoryArray);
+        }
         return false;
+
       }
       return true;
     },
@@ -29,42 +38,332 @@ if(Meteor.isClient)
         return 0;
       }
       else{
-        return Jobs.find({owner: Meteor.userId()}).count();
+        var categoryArray = Session.get('categories');
+        var criteria = Session.get('criteria');
+
+        if (categoryArray.length > 0 || criteria != ""){
+          var userCount = 0;
+          Jobs.find({owner: Meteor.userId()}).forEach(function(userListing){
+            /*alert(categoryArray.indexOf(userListing.category) != -1);
+            alert(categoryArray.indexOf("User") != -1);
+            alert(userListing.title.indexOf(criteria)!=-1);
+            alert(userListing.company.indexOf(criteria)!=-1);
+            alert(userListing.description.indexOf(criteria)!=-1);*/
+            if(
+              ((categoryArray.indexOf(userListing.category) != -1 || (categoryArray.indexOf("User") != -1 && (categoryArray.length == 1 || categoryArray.indexOf(userListing.category) != -1))) && (criteria == "")
+              )||(
+                userListing.title.indexOf(criteria)!=-1 && criteria != "" &&((categoryArray.length == 0 || categoryArray.indexOf(userListing.category) != -1)||(categoryArray.indexOf("User") != -1 && categoryArray.length==1))
+              )||(
+                userListing.company.indexOf(criteria)!=-1  && criteria != ""&&((categoryArray.length == 0 || categoryArray.indexOf(userListing.category) != -1)||(categoryArray.indexOf("User") != -1 && categoryArray.length==1))
+              )||(
+                userListing.description.indexOf(criteria)!=-1 && criteria != ""&&((categoryArray.length == 0 || categoryArray.indexOf(userListing.category) != -1)||(categoryArray.indexOf("User") != -1 && categoryArray.length==1))
+              )
+            ){
+              userCount += 1;
+            }
+
+          });
+          return userCount;
+        }
+        else{
+          return Jobs.find({owner: Meteor.userId()}).count();
+        }
       }
     },
     categories:[{
       name: "Programming",
       short: "Programming",
       number: function() {
-        return Jobs.find({category: "Programming"}).count();
+        var userListArray = []
+        if(Meteor.userId()){
+          Jobs.find({owner: Meteor.userId()}).forEach(function(userListing){
+            userListArray.push(userListing.category);
+          });
+        }
+        var array = Session.get('categories');
+        var criteria = Session.get('criteria');
+        if(array.indexOf('User') == -1){
+          if(array.length == 0 || array.indexOf(this.name)!= -1){
+            if(criteria != "")
+            {
+              var num = 0;
+              Jobs.find({category: this.name}).forEach(function(listingList){
+                if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                {
+                  num += 1;
+                }
+              });
+              return num;
+            }
+            return Jobs.find({category: this.name}).count();
+          }else {
+            return 0;
+          }
+        }else {
+          if(criteria != "")
+          {
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
+                && userListArray.indexOf(listingList.category) != -1
+                && listingList.owner == Meteor.userId()
+              ){
+                num += 1;
+              }
+            });
+            return num;
+          }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId()){
+                num += 1;
+              }
+            })
+            return num;
+          }else {
+            return 0;
+          }
+        }
       },
       color: "#FF0000"
     },{
       name: "Design",
       short: "Design",
       number: function() {
-        return Jobs.find({category: "Design"}).count();
+        var userListArray = []
+        if(Meteor.userId()){
+          Jobs.find({owner: Meteor.userId()}).forEach(function(userListing){
+            userListArray.push(userListing.category);
+          });
+        }
+        var array = Session.get('categories');
+        var criteria = Session.get('criteria');
+        if(array.indexOf('User') == -1){
+          if(array.length == 0 || array.indexOf(this.name)!= -1){
+            if(criteria != "")
+            {
+              var num = 0;
+              Jobs.find({category: this.name}).forEach(function(listingList){
+                if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                {
+                  num += 1;
+                }
+              });
+              return num;
+            }
+            return Jobs.find({category: this.name}).count();
+          }else {
+            return 0;
+          }
+        }else {
+          if(criteria != "")
+          {
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
+                && userListArray.indexOf(listingList.category) != -1
+                && listingList.owner == Meteor.userId()
+              ){
+                num += 1;
+              }
+            });
+            return num;
+          }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+            })
+            return num;
+          }else {
+            return 0;
+          }
+        }
       },
       color: "#FF6600"
     },{
       name:"Business Development",
       short: "Business",
       number: function() {
-        return Jobs.find({category: "Business Development"}).count();
+        var userListArray = []
+        if(Meteor.userId()){
+          Jobs.find({owner: Meteor.userId()}).forEach(function(userListing){
+            userListArray.push(userListing.category);
+          });
+        }
+        var array = Session.get('categories');
+        var criteria = Session.get('criteria');
+        if(array.indexOf('User') == -1){
+          if(array.length == 0 || array.indexOf(this.name)!= -1){
+            if(criteria != "")
+            {
+              var num = 0;
+              Jobs.find({category: this.name}).forEach(function(listingList){
+                if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                {
+                  num += 1;
+                }
+              });
+              return num;
+            }
+            return Jobs.find({category: this.name}).count();
+          }else {
+            return 0;
+          }
+        }else {
+          if(criteria != "")
+          {
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
+                && userListArray.indexOf(listingList.category) != -1
+                && listingList.owner == Meteor.userId()
+              ){
+                num += 1;
+              }
+            });
+            return num;
+          }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+            })
+            return num;
+          }else {
+            return 0;
+          }
+        }
       },
       color: "#009900"
     },{
       name: "IT Admin / Support",
       short: "IT",
       number: function() {
-        return Jobs.find({category: "IT Admin / Support"}).count();
+        var userListArray = []
+        if(Meteor.userId()){
+          Jobs.find({owner: Meteor.userId()}).forEach(function(userListing){
+            userListArray.push(userListing.category);
+          });
+        }
+        var array = Session.get('categories');
+        var criteria = Session.get('criteria');
+        if(array.indexOf('User') == -1){
+          if(array.length == 0 || array.indexOf(this.name)!= -1){
+            if(criteria != "")
+            {
+              var num = 0;
+              Jobs.find({category: this.name}).forEach(function(listingList){
+                if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                {
+                  num += 1;
+                }
+              });
+              return num;
+            }
+            return Jobs.find({category: this.name}).count();
+          }else {
+            return 0;
+          }
+        }else {
+          if(criteria != "")
+          {
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
+                && userListArray.indexOf(listingList.category) != -1
+                && listingList.owner == Meteor.userId()
+              ){
+                num += 1;
+              }
+            });
+            return num;
+          }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+            })
+            return num;
+          }else {
+            return 0;
+          }
+        }
       },
       color: "#0000FF"
     },{
       name:"Marketing",
       short: "Marketing",
       number: function() {
-        return Jobs.find({category: "Marketing"}).count();
+        var userListArray = []
+        if(Meteor.userId()){
+          Jobs.find({owner: Meteor.userId()}).forEach(function(userListing){
+            userListArray.push(userListing.category);
+          });
+        }
+        var array = Session.get('categories');
+        var criteria = Session.get('criteria');
+        if(array.indexOf('User') == -1){
+          if(array.length == 0 || array.indexOf(this.name)!= -1){
+            if(criteria != "")
+            {
+              var num = 0;
+              Jobs.find({category: this.name}).forEach(function(listingList){
+                if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                {
+                  num += 1;
+                }
+              });
+              return num;
+            }
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+              return num;
+            })
+          }else {
+            return 0;
+          }
+        }else {
+          if(criteria != "")
+          {
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+                && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
+                && userListArray.indexOf(listingList.category) != -1
+                && listingList.owner == Meteor.userId()
+              ){
+                num += 1;
+              }
+            });
+            return num;
+          }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
+            var num = 0;
+            Jobs.find({category: this.name}).forEach(function(listingList){
+              if(listingList.owner == Meteor.userId())
+              {
+                num += 1;
+              }
+            })
+            return num;
+          }else {
+            return 0;
+          }
+        }
       },
       color: "#6600CC"
     },
@@ -79,7 +378,35 @@ if(Meteor.isClient)
           return name;
       },
       short: 'Search',
-      number: '',
+      number: function() {
+        var userListArray = []
+        if(Meteor.userId()){
+          Jobs.find({owner: Meteor.userId()}).forEach(function(userListing){
+            userListArray.push(userListing.category);
+          });
+        }
+        var criteria = Session.get('criteria')
+        var array = Session.get('categories');
+        var searchName=this.name();
+        var searchNumber = 0;
+
+        var num = 0;
+        Jobs.find().forEach(function(listingList){
+          //alert(listingList);
+          if(
+            (listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
+            && (array.length == 0 || (array.indexOf(listingList.category) != -1 && array.indexOf("User") == -1)
+                || (array.indexOf("User")!= -1 && array.length == 1 && listingList.owner == Meteor.userId())||(array.indexOf("User")!= -1 && listingList.owner == Meteor.userId() && array.indexOf(listingList.category) != -1))
+            ){
+            searchNumber += 1;
+          }
+        });
+        /*return num;
+        searchNumber += Jobs.find(
+          {$or: [{title: searchName.replace("Search: ","")},{company: searchName.replace("Search: ","")},{description: searchName.replace("Search: ","")}]}
+        ).count();*/
+        return searchNumber;
+      },
       color: 'grey'
     }],
 
@@ -109,7 +436,13 @@ if(Meteor.isClient)
             {
               // Category, Search, User
               keyword = new RegExp(criteria, 'i');
-              return Jobs.find({$and: [{'owner': Meteor.userId()},{$or: [{'title': {$regex: keyword}},{'company': {$regex: keyword}}, {'description': {$regex: keyword}}]}, {'category': {$in: categories}}]},{sort: {createdAt: -1}}).fetch();
+              return Jobs.find(
+                {$and: [{'owner': Meteor.userId()},{
+                    $or: [{'title': {$regex: keyword}},{'company': {$regex: keyword}}, {'description': {$regex: keyword}}]},
+                  {'category': {$in: categories}}]
+                }
+                ,{sort: {createdAt: -1}}
+              ).fetch();
             }
             else
             {

@@ -49,9 +49,22 @@ if(Meteor.isClient)
       {
         $('#Search').css('display', 'inline-block');
         $('.Search-dot').css("display", "block");
+      /*  var data = Session.get('categories');
+        if(data.indexOf(text) == -1)
+        {
+          //alert(data);
+          data.push("Search: "+text);
+          //alert(data);
+          //Session.set('categories', data);
+        }*/
       }
       if(text == '')
       {
+        /*if(data.indexOf(text) != -1){
+          index = data.indexOf(text);
+          data.splice(index, 1);
+          Session.set('categories', data);
+        }*/
         $('#Search').css('display', 'none');
       }
     }
