@@ -30,6 +30,10 @@ Associated Files: homepage.html, homepage.js and homepage.css
         {{/if}}
         {{#if isOwner owner}}
         <button class="home-listing-delete" onclick="Meteor.call('deleteJob', '{{_id}}')">Delete</button>
+        {{else}}
+          {{#if isInRole 'admin'}}
+          <button class="home-listing-delete" onclick="Meteor.call('deleteJob', '{{_id}}')">Delete</button>
+          {{/if}}
         {{/if}}
       </a>
       {{/each}}
