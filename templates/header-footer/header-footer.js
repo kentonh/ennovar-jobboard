@@ -1,8 +1,5 @@
-function getrightboxwidth() {
-
-
-}
 function resizeDiv() {
+  console.log("did it");
 vpw = $(window).width();
 vph = $(window).height();
 rb = $("#rightbox").width();  // get the width value of rightbox
@@ -39,9 +36,13 @@ if(Meteor.isClient)
     }
     resizeDiv();
   }),
-  window.onload = function(event) {
-//    resizeDiv();
-  },
+  // Hooks.onLoggedIn =  function(){
+  //   resizeDiv();
+  // },
+  //
+  // Hooks.onLoggedOut =  function(userId){
+  //   resizeDiv();
+  // },
   search = function() {
     var criteria = Session.get('criteria');
     if(criteria != undefined)
