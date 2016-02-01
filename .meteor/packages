@@ -26,3 +26,4 @@ check
 ejson
 markdown
 alanning:roles
+differential:event-hooks
