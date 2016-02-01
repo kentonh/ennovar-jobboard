@@ -1,18 +1,24 @@
 <template name="header">
   <div class = "hdr">
-    <a href = '/'><div class = "hdr_ttl">Jobs in ICT</div></a>
-    <div class = "hdr_txt" id="searchbox"><input class="inputhp" type = "search" id = "search" onsearch = "search()"></div>
+    <a href = '/'><div class = "hdr_ttl">Jobs <i>in</i> <b>ICT</b></div></a>
     <div id = "rightbox">
       <a href = '/create'><div class = "hdr_create">Create</div></a>
-      <!--div class = "hdr_login">{{> loginButtons align="right"}}XXXXXXXXXXXXXXXXXxxxxx</div-->
-      <div class = "hdr_login">{{> loginButtons align="right"}}</div>
+      <div class = "hdr_login"><i class="fa fa-user"></i> {{> loginButtons align="right"}}</div>
     </div>
+    <div class = "hdr_txt" id="searchbox">
+      <div class="inputhp">
+         <input type = "search" id = "search" onsearch = "search()">
+      </div>
+    </div>
+    <div class="search_btn"><i class="fa fa-search"></i></div>
+
     <div class="hdr_btn" id="menu"></div>
   </div>
 </template>
 
 <template name = "footer">
   <div class = "footer">
-    <div class = "footer_txt">Created by Ennovar 2016</div>
+    <i class="fa fa-copyright"></i> 2016 Ennovar at Wichita State University
+    <!--div class = "footer_txt"><i class="fa fa-copyright"></i>2016 Ennovar at Wichita State University</div-->
   </div>
 </template>
