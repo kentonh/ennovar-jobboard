@@ -1,26 +1,30 @@
-
 function resizeDiv() {
+  console.log("did it");
 vpw = $(window).width();
 vph = $(window).height();
-//$(‘#somediv’).css({‘height’: vph + ‘px’});
+rb = $("#rightbox").width();  // get the width value of rightbox
 
-  if (vpw < 1660 && vpw >= 780) {
-    p = 10+40*(vpw-780)/(1660-780);
-    document.getElementById("searchbox").style.width = p+"%";
+if (rb < 264)  // not sure why not reading the corect width
+  rb = 264;
+
+  if (vpw >= 780) {
+    p= vpw-260-rb;
+    document.getElementById("searchbox").style.width = p+"px";
     document.getElementById("rightbox").style.display ='block';
     document.getElementById("menu").style.display ='none';
 
   } else {
-    if (vpw < 780) {
+    if (vpw >450 && vpw < 780) {
+      m= vpw - 325;
       document.getElementById("rightbox").style.display ='none';
       document.getElementById("menu").style.display ='block';
-      m = 35+30*(vpw-300)/(780-300);
-      document.getElementById("searchbox").style.width = m+"%";
+      document.getElementById("searchbox").style.width = m+"px";
     } else {
-      document.getElementById("menu").style.display ='none';
+      document.getElementById("searchbox").style.width = "125px";
+      document.getElementById("menu").style.display ='block';
     }
   }
-//  document.getElementById('search').value = vpw;
+//  document.getElementById('search').value = vpw +" "+ m +" "+rb;
 }
 
 if(Meteor.isClient)
@@ -32,9 +36,13 @@ if(Meteor.isClient)
     }
     resizeDiv();
   }),
-  window.onload = function(event) {
-//    resizeDiv();
-  },
+  // Hooks.onLoggedIn =  function(){
+  //   resizeDiv();
+  // },
+  //
+  // Hooks.onLoggedOut =  function(userId){
+  //   resizeDiv();
+  // },
   search = function() {
     var criteria = Session.get('criteria');
     if(criteria != undefined)

@@ -6,47 +6,41 @@
 /* Header */
 .hdr {
   width: 100%;
-  background-color: #3333ff;
+  min-width: 450px;
+  background-color: #ECECEC;
   position: fixed;
   top: 0px;
+  border-bottom: 3px solid #FFCF00;
+  height: 53px;
+  padding-top:  8px;
+  font-family: 'Lato';
+  font-size: 24px;
+  color: #9EA2A3;
+  line-height: 45px;
 }
 
 .hdr_ttl {
-  height: 50px;
-  margin-left: 15px;
+  margin-left: 33px;
   float: left;
-  color: #FFFFFF;
+  color: #9EA2A3;
+  font-family:sans-serif;
 }
-
-.hdr_home {
-  height: 50px;
-  margin-left: 10%;
-  float: left;
-  color: #FFFFFF;
+.hdr_ttl i {
+  font-family: serif;
 }
-
-.hdr_login {
-  height: 50px;
-  margin-left: 5%;
-  float: left;
-  max-width: 400px;
+.hdr_ttl b {
+  font-family:sans-serif;
 }
-.inputhp {
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  width: 100%;
-  font-size: 20px;
-  position: relative;
-  top: 2px;
+#rightbox {
+  float: right;
 }
 .hdr_txt {
   height: 50px;
-  width: 50%;
-  margin-left: 3%;
+  margin-left: 70px;
   line-height: 40px;
   float: left;
+
+/*  background-color: red;*/
 }
 .hdr_btn {
   float:right;
@@ -55,30 +49,87 @@
   background-color: red;
 }
 
+
+.inputhp {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border: 2px solid #9EA2A3;
+  height:25px;
+  border-right: 0px;
+/*  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: 100%;*/
+  font-size: 20px;
+  position: relative;
+  top: 8px;
+/*  background-color: #F2F2F2; */
+}
+.inputhp input {
+  border-width: 0px;
+  position: relative;
+  top : -11px;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background-color: #F2F2F2;
+}
+.search_btn {
+  float: left;
+  margin-top: 8px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 2px solid #9EA2A3;
+  height:25px;
+  border-left: 0px;
+  width: 30px;
+  background-color: #F2F2F2;
+}
+.search_btn .fa {
+  position: relative;
+  font-size: 15px;
+  top: -15px;
+  left: 5px;
+/*  color: red;*/
+
+}
  .hdr_create{
   height: 50px;
-  margin-left: 3%;
+  margin-left: 3px;
   float: left;
-  color: #FFFFFF;
+  margin-left: 30px;
+  color: #9EA2A3;
 }
 
+.hdr_login {
+  height: 50px;
+  margin-left: 30px;
+  float: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 20px;
+}
 .hdr {
-  font-family: 'Lato';
-  font-size: 24px;
-  color: #FFFFFF;
-  line-height: 45px;
+/*  */
 }
 
 /* Footer */
 .footer {
-  height: 30px;
+  text-align: center;
+  color: #9EA2A3;
+  height: 40px;
   width: 100%;
   position: relative;
-  bottom: 0px;
+  bottom: 30px;
+  background-color: #F2F2F2;
+  padding-top: 20px;
 }
 
 .footer_txt {
-  width: 200px;
+  width: 400px;
   font-size: 16px;
+
+  color: #9EA2A3;
   margin: 0px auto;
 }
