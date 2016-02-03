@@ -53,7 +53,7 @@ if(Meteor.isClient)
   },
 
   window.onresize = function(event) {
-    resizeDiv();
+     resizeDiv();
   },
 
   Template.header.events({
