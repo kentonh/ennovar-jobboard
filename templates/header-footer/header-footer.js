@@ -1,30 +1,21 @@
-function resizeDiv() {
-  console.log("did it");
-vpw = $(window).width();
-vph = $(window).height();
-rb = $("#rightbox").width();  // get the width value of rightbox
 
-if (rb < 264)  // not sure why not reading the corect width
-  rb = 264;
+function resizeDiv() {
+  vpw = $(window).width();
 
   if (vpw >= 780) {
-    p= vpw-260-rb;
-    document.getElementById("searchbox").style.width = p+"px";
-    document.getElementById("rightbox").style.display ='block';
-    document.getElementById("menu").style.display ='none';
-
+    if ($("#search:focus").size() == 1) {  // run this if user set focus on search box
+        $("#searchbox").width($(window).width()-260-$("#rightbox").width());
+    }
+    $("#rightbox").show();
+    $("#menu").hide();
   } else {
-    if (vpw >450 && vpw < 780) {
-      m= vpw - 325;
-      document.getElementById("rightbox").style.display ='none';
-      document.getElementById("menu").style.display ='block';
-      document.getElementById("searchbox").style.width = m+"px";
-    } else {
-      document.getElementById("searchbox").style.width = "125px";
-      document.getElementById("menu").style.display ='block';
+    $("#rightbox").hide();
+    $("#menu").show();
+    if (vpw > 300 && vpw < 780 && $("#search:focus").size() == 1) {
+      $("#searchbox").width($(window).width()-325);
     }
   }
-//  document.getElementById('search').value = vpw +" "+ m +" "+rb;
+//  document.getElementById('search').value = vpw +" "+rb;
 }
 
 if(Meteor.isClient)
@@ -36,13 +27,6 @@ if(Meteor.isClient)
     }
     resizeDiv();
   }),
-  // Hooks.onLoggedIn =  function(){
-  //   resizeDiv();
-  // },
-  //
-  // Hooks.onLoggedOut =  function(userId){
-  //   resizeDiv();
-  // },
   search = function() {
     var criteria = Session.get('criteria');
     if(criteria != undefined)
@@ -57,22 +41,9 @@ if(Meteor.isClient)
       {
         $('#Search').css('display', 'inline-block');
         $('.Search-dot').css("display", "block");
-      /*  var data = Session.get('categories');
-        if(data.indexOf(text) == -1)
-        {
-          //alert(data);
-          data.push("Search: "+text);
-          //alert(data);
-          //Session.set('categories', data);
-        }*/
       }
       if(text == '')
       {
-        /*if(data.indexOf(text) != -1){
-          index = data.indexOf(text);
-          data.splice(index, 1);
-          Session.set('categories', data);
-        }*/
         $('#Search').css('display', 'none');
       }
     }
@@ -80,5 +51,25 @@ if(Meteor.isClient)
 
   window.onresize = function(event) {
     resizeDiv();
-  }
+  },
+
+  Template.header.events({
+    "blur #search": function () {
+      $("#searchbox").width(50);
+      $("#icon").show();
+    },
+    "focus #search": function () {
+      $("#icon").hide();
+      vpw = $(window).width();
+      if (vpw >= 780) {
+        $("#searchbox").width($(window).width()-260-$("#rightbox").width());
+      } else {
+        if (vpw > 300 && vpw < 780) {
+          $("#searchbox").width($(window).width()-325);
+        } else {
+          $("#searchbox").width(50);
+        }
+      }
+    }
+  });
 }
