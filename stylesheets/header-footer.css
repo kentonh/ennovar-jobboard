@@ -6,7 +6,7 @@
 /* Header */
 .hdr {
   width: 100%;
-  min-width: 300px;
+  min-width: 490px;
   background-color: #ECECEC;
   position: fixed;
   top: 0px;
@@ -44,9 +44,9 @@
   margin-left: 70px;
   line-height: 40px;
   float: left;
-  width: 50px;
-/*  background-color: red;*/
+  width: 200px;
 }
+
 .hdr_btn {
   float:right;
   width: 50px;
@@ -102,7 +102,7 @@
 
 .hdr_login {
   height: 50px;
-  max-width: 350px;
+  max-width: 300px;
 
   margin-left: 30px;
   float: right;

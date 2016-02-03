@@ -1,8 +1,11 @@
 
+
 function resizeDiv() {
   vpw = $(window).width();
+  menusizemax= 875;
+  min = parseInt($(".hdr").css("min-width"));
 
-  if (vpw >= 780) {
+  if (vpw >= menusizemax) {
     if ($("#search:focus").size() == 1) {  // run this if user set focus on search box
         $("#searchbox").width($(window).width()-260-$("#rightbox").width());
     }
@@ -11,11 +14,11 @@ function resizeDiv() {
   } else {
     $("#rightbox").hide();
     $("#menu").show();
-    if (vpw > 300 && vpw < 780 && $("#search:focus").size() == 1) {
-      $("#searchbox").width($(window).width()-325);
+    if (vpw > min && vpw < menusizemax && $("#search:focus").size() == 1) {
+      $("#searchbox").width($(window).width()-295);
     }
   }
-//  document.getElementById('search').value = vpw +" "+rb;
+  document.getElementById('search').value = vpw +" "+ min;
 }
 
 if(Meteor.isClient)
@@ -55,19 +58,21 @@ if(Meteor.isClient)
 
   Template.header.events({
     "blur #search": function () {
-      $("#searchbox").width(50);
+      $("#searchbox").width(200);
       $("#icon").show();
     },
     "focus #search": function () {
+      menusizemax= 875;
+      min = parseInt($(".hdr").css("min-width"));
       $("#icon").hide();
       vpw = $(window).width();
-      if (vpw >= 780) {
+      if (vpw >= menusizemax) {
         $("#searchbox").width($(window).width()-260-$("#rightbox").width());
       } else {
-        if (vpw > 300 && vpw < 780) {
-          $("#searchbox").width($(window).width()-325);
+        if (vpw > min && vpw < menusizemax) {
+          $("#searchbox").width($(window).width()-295);
         } else {
-          $("#searchbox").width(50);
+          $("#searchbox").width(200);
         }
       }
     }
