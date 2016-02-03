@@ -41,6 +41,11 @@ Associated Files: homepage.html, homepage.js and homepage.css
   float: left;
 }
 
+.listing-panel{
+  margin: auto;
+  width: 800px;
+}
+
 .home-listing {
   width: 100%;
   overflow: hidden;
@@ -50,15 +55,24 @@ Associated Files: homepage.html, homepage.js and homepage.css
   margin-top: 10px
 }
 
+.listingText{
+  float:right;
+  width:285px;
+  text-align: left;
+  margin-left:0px;
+  margin-top:6px;
+}
 .home-listing a {
   height: 65px;
   font-size: 18px;
   color: #555;
   display: block;
   background-color: #fff;
-  border: 1px solid #ddd;
-  margin-top: -1px;
+  /*border: 1px solid #ddd;*/
+  margin-top: 20px;
   text-decoration: none;
+  width: 300px;
+  float:left;
 }
 .home-listing a:first-child {
   border-top-right-radius: 4px;
@@ -73,12 +87,21 @@ Associated Files: homepage.html, homepage.js and homepage.css
 }
 
 .home-listing-lft {
-  margin: 5px 0px 0px 10px;
+  height:60px;
+  margin: 5px 0px 0px 0px;
   float: left;
+  border-left: 12px solid;
+  opacity: .3;
 }
 
 .home-listing-lft-txt {
-  font-size: 22px;
+  /*font-size: 22px;*/
+  height:60px;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 12px;
+  margin-top: 5px;
 }
 
 .home-listing-lft-txt div {

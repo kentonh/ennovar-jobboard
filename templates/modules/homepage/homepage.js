@@ -686,3 +686,7 @@ if(Meteor.isClient)
     return Meteor.userId() == owner;
   })
 }
+
+Handlebars.registerHelper("isEven", function(val){
+  return val%2;
+})
