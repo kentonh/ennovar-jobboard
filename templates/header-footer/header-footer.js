@@ -18,7 +18,7 @@ function resizeDiv() {
       $("#searchbox").width($(window).width()-295);
     }
   }
-//  document.getElementById('search').value = vpw +" "+ min;
+  document.getElementById('search').value = vpw +" "+ min;
 }
 
 if(Meteor.isClient)

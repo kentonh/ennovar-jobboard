@@ -24,19 +24,25 @@
       <div class="title">
         {{title}}
       </div>
-      <div class="publishedDate">Posted on: {{createdAt}}</div>
+
       <div class="info">
-        <span class="company">{{company}}</span> - <span class="category">{{category}}</span>
+        <span class="company">{{company}}</span><br />
+        <span class="category">{{category}}</span>
       </div>
+      <div class="publishedDate">{{createdAt}}</div>
     </div>
-    <div class="description">
-      <div class=heading>Description:</div>
-      {{#markdown}}{{description}}{{/markdown}}
+
+    <hr />
+    <div class="titleParagraph">
+      <H1>Description:</H1>
+      <p>{{#markdown}}{{description}}{{/markdown}}</p>
     </div>
-    <div class="perks">
-      <div class=heading>Perks:</div>
-      {{#markdown}}{{perks}}{{/markdown}}
+
+    <div class="titleParagraph">
+      <H1>Perks:</H1>
+      <p>{{#markdown}}{{perks}}{{/markdown}}</p>
     </div>
+
     <div class="url">
       <div class=heading>To apply:</div>
       {{#if isEmail}}
@@ -44,23 +50,23 @@
         <form>
           <div class="close">X</div>
           <div class="effirst">
-            Name*:<br>
+            <span>Name*:</span><br>
             <input type="text" name="name" id="name">
           </div>
           <div class="efrest">
-            Email*:<br>
+            <span>Email*:</span><br>
             <input type="text" name="email" id="email">
           </div>
-          <div class="efresty">
-            Phone:<br>
+          <div class="efrest">
+            <span>Phone:</span><br>
             <input type="text" name="phone" id="phone">
           </div>
           <div class="efrest" >
-            Message*:<br>
+            <span>Message*:</span><br>
             <textarea rows="20" cols="80" id="message" name="message"></textarea>
           </div>
           <div class="efrest">
-            Resume link*:<br>
+            <span>Resume link*:</span><br>
             <input type="text" name="resumelink" id="resumelink">
           </div>
           <div class="efrest">
@@ -68,10 +74,16 @@
           </div>
         </form>
       </div>
-      <button type="button" id="emailform">Click Here</button>
+      <div>
+      <!--button class="submit" type="button" id="emailform1"></button-->
+        <div class="box" id="emailformbox">Apply Now</div>
+        <div class="circle" id="emailformcorcle"><i class="fa fa-briefcase"></i></div>
+    </div>
       <!--Please send an email with your resume attached to: <a href={{url}}>{{url}}</a>-->
       {{else}}
-      <button type="button" onclick="window.location.href='{{url}}'">Click Here</button>
+      <div class="box" onclick="window.location.href='{{url}}'">Apply Now</div>
+      <div class="circle" onclick="window.location.href='{{url}}'"><i class="fa fa-briefcase"></i></div>
+      <button type="button" onclick="window.location.href='{{url}}'">Apply Now</button>
       {{/if}}
     </div>
     {{/each}}

@@ -5,32 +5,32 @@
 
 <template name="create_listing">
   <form class="cr_lstng">
-    <div class="cr_lstng-title">
-      Title:<br>
-      <input type="text" name="title">
+    <div class="cr_lstng-list">
+      <span>Title:</span><br>
+      <input type="text" name="title" class="title">
     </div>
-    <div class="cr_lstng-company">
-      Company:<br>
-      <input type="text" name="company">
+    <div class="cr_lstng-list">
+      <span>Company:</span><br>
+      <input type="text" name="company" class="company">
     </div>
-    <div class="cr_lstng-description">
-      Description:<br>
+    <div class="cr_lstng-list">
+      <span>Description:</span><br>
       <textarea rows="20" cols="80" name="description"></textarea>
     </div>
-    <div class="cr_lstng-perks">
-      Perks:<br>
+    <div class="cr_lstng-list">
+    <span>Perks:</span><br>
       <textarea rows="20" cols="80" name="perks"></textarea>
     </div>
-    <div class="cr_lstng-category">
-      Please Select the Job Category:<br>
+    <div class="cr_lstng-list">
+      <span>Please Select the Job Category:</span><br>
       <input type="radio" name="category" value="one">Programming<br>
       <input type="radio" name="category" value="two">Design<br>
       <input type="radio" name="category" value="three">Business Development<br>
       <input type="radio" name="category" value="four">IT Admin / Support<br>
       <input type="radio" name="category" value="five">Marketing
     </div>
-    <div class="cr_lstng-application">
-      How Should Applicants Apply?<br>
+    <div class="cr_lstng-list">
+    <span>How Should Applicants Apply?</span><br>
       <input type="radio" name="apply" value="email" class="applyByEmail"> E-mail (Use Email Associated with this Account)<br>
       <input type="radio" name="apply" value="website" class="applyByWebsite"> Website
       <div class="applicationURL">
@@ -38,7 +38,7 @@
         <input type="text" name="app_URL">
       </div>
     </div>
-    <div class="cr_lstng-createbutton">
+    <div class="cr_lstng-list">
       <input type="submit" value="Submit">
     </div>
   </form>
