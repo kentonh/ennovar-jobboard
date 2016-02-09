@@ -22,6 +22,13 @@ if (Meteor.isClient){
     }
   });
 
+  Template.view_listing.onRendered(function(){
+    var self = this;
+    this.autorun(function() {
+  //     alert("teswt"+ $(".category").html());
+     });
+  });
+
   Template.view_listing.events({
     'click .renew-btn': function(){
       var currentUrl = window.location.pathname;
@@ -48,7 +55,11 @@ if (Meteor.isClient){
     'click .no-btn': function(){
       $('.confirm').hide();
     },
-    'click #emailform': function() {
+    'click #emailformbox': function() {
+      $('.emailForm').show();
+      $('#name').focus();
+    },
+    'click #emailformcorcle': function() {
       $('.emailForm').show();
       $('#name').focus();
     },
