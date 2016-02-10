@@ -43,11 +43,12 @@ if(Meteor.isClient)
       if(text != '')
       {
         $('#Search').css('display', 'inline-block');
-        $('.Search-dot').css("display", "block");
+        $('.Search-case').css("display", "block");
       }
       if(text == '')
       {
         $('#Search').css('display', 'none');
+        $('.Search-case').css("display", "none");
       }
     }
   },

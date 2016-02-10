@@ -326,14 +326,7 @@ if(Meteor.isClient)
               });
               return num;
             }
-            var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
-              if(listingList.owner == Meteor.userId())
-              {
-                num += 1;
-              }
-              return num;
-            })
+            return Jobs.find({category: this.name}).count();
           }else {
             return 0;
           }
@@ -401,13 +394,13 @@ if(Meteor.isClient)
             searchNumber += 1;
           }
         });
-        /*return num;
-        searchNumber += Jobs.find(
-          {$or: [{title: searchName.replace("Search: ","")},{company: searchName.replace("Search: ","")},{description: searchName.replace("Search: ","")}]}
-        ).count();*/
+        //return num;
+        //searchNumber += Jobs.find(
+        //  {$or: [{title: searchName.replace("Search: ","")},{company: searchName.replace("Search: ","")},{description: searchName.replace("Search: ","")}]}
+        //).count();
         return searchNumber;
       },
-      color: 'grey'
+      color: '#808080'
     }],
 
     listing: function() {
@@ -639,6 +632,7 @@ if(Meteor.isClient)
     'click #Search': function(e, t) {
       Session.set('criteria', []);
       $('#Search').css('display', 'none');
+      $('.Search-case').css('display','none');
     },
     'click #User': function(e, t) {
       $('#User').toggleClass('user_fade');
