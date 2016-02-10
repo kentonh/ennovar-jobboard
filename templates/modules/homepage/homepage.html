@@ -22,6 +22,10 @@ Associated Files: homepage.html, homepage.js and homepage.css
       {{/if}}
     </div>
 
+    <div class="admin-button-container">
+      <button class="admin-button" onclick="Meteor.call('getEmails')">Click to Download List of Users</button>
+    </div>
+
     <div class="home-listing">
       <div class="listing-panel">
       {{#each listing}}
