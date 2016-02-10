@@ -13,9 +13,10 @@ Associated Files: homepage.html, homepage.js and homepage.css
 
 .home-image{
   max-width: 100%;
-  max-height: 100%;
+  max-height: 400px;
   width:auto;
   height:auto;
+  overflow: hidden;
 }
 
 img{
@@ -84,6 +85,15 @@ img{
   border-style:solid;
   border-width: 2px;
   border-radius:7px;
+}
+
+.admin-button-container{
+  width: 100%;
+  margin-top: 15px;
+}
+
+.admin-button{
+  padding: 5px;
 }
 
 .listing-panel{
