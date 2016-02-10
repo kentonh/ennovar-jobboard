@@ -6,44 +6,89 @@ Associated Files: homepage.html, homepage.js and homepage.css
 */
 .home {
   background-color: #ffffff;
-  margin: 0px 30px;
-  max-width: 1140px;
+  margin: auto;
+  max-width: 1188px;
   overflow: hidden;
 }
 
-.dot{
-  height:10px;
-  width: 10px;
-  float:left;
+.home-image{
+  max-width: 100%;
+  max-height: 100%;
+  width:auto;
+  height:auto;
+}
+
+img{
+  max-width: 100%;
+  width:auto;
+  height:auto;
+}
+
+.Search-case{
   display: none;
-  margin-right:5px;
+}
+
+.Search-tag{
+  background-color: #808080 !important;
+  color:#ffffff !important;
+}
+
+.SearchtagText{
+  max-width: 145px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;;
+
+}
+.case{
+  height:30px;
+  width: 30px;
+  float:left;
+  margin-top:-4px;
+  z-index: 1;
+  position:relative;
+  border-radius: 100%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff;
+}
+
+.fa-suitcase{
+  margin-left:7px;
 }
 
 .home-tags {
-  width: 100%;
+  min-width: 980px;
   height: 28px;
   overflow: hidden;
   padding-top: 5px;
   line-height: 25px;
+  margin:auto;
   margin-top: 10px;
+
 }
 .home-tag {
+  position:relative;
+  left: -10px;
   min-width: 10px;
+  max-width: 156px;
   padding: 4px 8px;
   font-size: 14px;
   line-height: 1;
   color: #ffffff;
   text-align: center;
   white-space: nowrap;
-  border-radius: 10px;
   margin-right: 5px;
   cursor: pointer;
   float: left;
+  border-style:solid;
+  border-width: 2px;
+  border-radius:7px;
 }
 
 .listing-panel{
   margin: auto;
-  width: 800px;
+  width: 770px;
 }
 
 .home-listing {
@@ -148,25 +193,31 @@ Associated Files: homepage.html, homepage.js and homepage.css
 }
 
 .red_fade {
-  background-color: #ff66cc !important;
+  background-color: #FF0000 !important;
+  color: #ffffff !important;
 }
 
 .orange_fade {
-  background-color: #ff9933 !important;
+  background-color: #FF6600 !important;
+  color: #ffffff !important;
 }
 
 .green_fade {
-  background-color: #66ff66 !important;
+  background-color: #009900 !important;
+  color: #ffffff !important;
 }
 
 .blue_fade {
-  background-color: #66ccff !important;
+  background-color: #0000FF !important;
+  color: #ffffff !important;
 }
 
 .purple_fade {
-  background-color: #9933ff !important;
+  background-color: #6600CC !important;
+  color: #ffffff !important;
 }
 
 .user_fade {
-  background-color: #444444 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
