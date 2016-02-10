@@ -42,7 +42,9 @@
 
       <div class="info">
         <span class="company">{{company}}</span><br />
-        <span class="category">{{category}}</span>
+        <div class="home-tags">
+            <div class="{{short}}-case case" style = "border-color: #ffffff; color: #ffffff; background-color:{{color}};"><i class="fa fa-suitcase" style="margin-left:5px;"></i></div><div class="home-tag {{short}}-tag" id = "{{short}}" style = "border-color: {{color}}; color: {{color}}; cursor: auto;"><div class="{{short}}tagText" style="float:left;">{{category}}</div></div>
+        </div>
       </div>
       <div class="publishedDate">{{createdAt}}</div>
     </div>
