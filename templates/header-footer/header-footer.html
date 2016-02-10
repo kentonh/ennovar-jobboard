@@ -1,23 +1,27 @@
 <template name="header">
   <div class = "hdr">
-    <a href = '/'><div class = "hdr_ttl">Jobs <i>in</i> <b>ICT</b></div></a>
-    <div id = "rightbox">
-      <a href = '/create'><div class = "hdr_create">Create</div></a>
-      <div class = "hdr_login"><i class="fa fa-user"></i> {{> loginButtons align="right"}}</div>
-    </div>
-    <div class = "hdr_txt" id="searchbox">
-      <div class="inputhp">
-         <input type = "search" id = "search" onsearch = "search()">
+    <div class="hdr_lightGray">
+      <a href = '/'><div class = "hdr_ttl">Jobs <i>in</i> <b>ICT</b></div></a>
+      <div id = "rightbox">
+        <a href = '/create'><div class = "hdr_create">Create</div></a>
+        <div class = "hdr_login"><i class="fa fa-user"></i> {{> loginButtons align="right"}}</div>
       </div>
-      <div class="search_btn"><i class="fa fa-search" id="icon"></i></div>
+      <div class = "hdr_txt" id="searchbox">
+        <div class="inputhp">
+          <input type = "search" id = "search" onsearch = "search()">
+        </div>
+        <div class="search_btn"><i class="fa fa-search" id="icon"></i></div>
+      </div>
+      <div class="hdr_btn" id="menu"></div>
     </div>
-    <div class="hdr_btn" id="menu"></div>
+    <div class="hdr_yellow"></div>
   </div>
+
 </template>
 
 <template name = "footer">
   <div class = "footer">
+    <img src="/ennovar_logo.png"/>
     <i class="fa fa-copyright"></i> 2016 Ennovar at Wichita State University
-    <!--div class = "footer_txt"><i class="fa fa-copyright"></i>2016 Ennovar at Wichita State University</div-->
   </div>
 </template>

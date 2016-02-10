@@ -18,7 +18,7 @@ function resizeDiv() {
       $("#searchbox").width($(window).width()-295);
     }
   }
-//  document.getElementById('search').value = vpw +" "+ min;
+  document.getElementById('search').value = vpw +" "+ min;
 }
 
 if(Meteor.isClient)
@@ -43,11 +43,12 @@ if(Meteor.isClient)
       if(text != '')
       {
         $('#Search').css('display', 'inline-block');
-        $('.Search-dot').css("display", "block");
+        $('.Search-case').css("display", "block");
       }
       if(text == '')
       {
         $('#Search').css('display', 'none');
+        $('.Search-case').css("display", "none");
       }
     }
   },
