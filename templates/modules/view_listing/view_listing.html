@@ -19,6 +19,21 @@
       <button type="button" class="yes-btn btn-top">Yes</button>
       <button type="button" class="no-btn btn-top">No</button>
     </div>
+    {{else}}
+      {{#if isInRole 'admin'}}
+      <div class="buttons">
+        {{#if isExpired}}
+        <button type="button" class="renew-btn btn-top">Renew</button>
+        {{/if}}
+        <button type="button" class="edit-btn btn-top">Edit</button>
+        <button type="button" class="delete-btn btn-top">Delete</button>
+      </div>
+      <div class="confirm">
+        <div class="confirm-text">Are you sure?</div>
+        <button type="button" class="yes-btn btn-top">Yes</button>
+        <button type="button" class="no-btn btn-top">No</button>
+      </div>
+      {{/if}}
     {{/if}}
     <div class=titlebox>
       <div class="title">
@@ -27,7 +42,9 @@
 
       <div class="info">
         <span class="company">{{company}}</span><br />
-        <span class="category">{{category}}</span>
+        <div class="home-tags">
+            <div class="{{short}}-case case" style = "border-color: #ffffff; color: #ffffff; background-color:{{color}};"><i class="fa fa-suitcase" style="margin-left:5px;"></i></div><div class="home-tag {{short}}-tag" id = "{{short}}" style = "border-color: {{color}}; color: {{color}}; cursor: auto;"><div class="{{short}}tagText" style="float:left;">{{category}}</div></div>
+        </div>
       </div>
       <div class="publishedDate">{{createdAt}}</div>
     </div>

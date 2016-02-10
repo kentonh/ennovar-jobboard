@@ -6,25 +6,41 @@ Associated Files: homepage.html, homepage.js and homepage.css
 -->
 
 <template name = "homepage">
+  <div class="hidden-comparison-div" style="color:#ffffff;"></div>
+  <div class="home-image">
+    <img src="homeImage.jpg">
+  </div>
   <div class="home">
+
     <!-- tags category -->
     <div class="home-tags">
       {{#each categories}}
-        <div class="home-tag" id = "{{short}}" style = "background-color: {{color}}"><div class="{{short}}-dot dot"><i class="fa fa-times" id="{{short}}-dot"></i></div>{{name}} &nbsp;&nbsp;{{number}}</div>
+        <div class="{{short}}-case case" style = "border-color: #ffffff; color: #ffffff; background-color:{{color}};"><i class="fa fa-suitcase"></i></div><div class="home-tag {{short}}-tag" id = "{{short}}" style = "border-color: {{color}}; color: {{color}};"><div class="{{short}}tagText" style="float:left;">{{name}}</div>&nbsp;&nbsp;{{number}}</div>
       {{/each}}
       {{#if loggedIn}}
-        <div class="home-tag" id = "User" style = "background-color: #000000"><div class="User-dot dot"><i class="fa fa-times User-dot" id="User-dot"></i></div>Your listings &nbsp;&nbsp;{{userNumber}}</div>
+        <div class="User-case case" style = "border-color: #ffffff; color: #ffffff; background-color:#000000;"><i class="fa fa-suitcase"></i></div><div class="home-tag" id = "User" style = "border-color: #000000; color: #000000;">Your listings &nbsp;&nbsp;{{userNumber}}</div>
       {{/if}}
     </div>
 
+    <div class="admin-button-container">
+      <button class="admin-button" onclick="Meteor.call('getEmails')">Click to Download List of Users</button>
+    </div>
+
     <div class="home-listing">
+      <div class="listing-panel">
       {{#each listing}}
-      <a href="/view/{{_id}}">
-        <div class = "home-listing-lft">
-          <div class="home-listing-lft-txt" style = "color: {{color}}">{{title}} <div>&nbsp;-&nbsp;{{company}}</div></div>
-          <span class="badge" style = "background-color: {{color}}">{{category}}</span>
+      <a href="/view/{{_id}}" style="">
+        <div class = "home-listing-lft" style="border-left-color:{{color}};">
         </div>
-        <span class="badge fr">{{#if isExpired}}Expired. {{/if}}Posted on {{month}}/{{day}}</span>
+        <div class="home-listing-lft-txt">
+          <div class="listing-title listingText" style="font-weight:600">{{title}}</div>
+          <div class="listing-company listingText" style="opacity:.7;">{{company}}</div>
+          <div class="listing-category listingText" style="color:{{color}}; opacity:.8;">{{category}}</div>
+        </div>
+          <!--<div class="home-listing-lft-txt" style = "color: {{color}} ">{{title}} <div>&nbsp;-&nbsp;{{company}}</div></div>
+          <span class="badge" style = "background-color: {{color}}">{{category}}</span>-->
+
+        <!--<span class="badge fr">{{#if isExpired}}Expired. {{/if}}Posted on {{month}}/{{day}}</span>
         {{#if isExpired}}
         <button class="home-listing-renew" onclick="Meteor.call('renewJob', '{{_id}}')">Renew</button>
         {{/if}}
@@ -34,9 +50,10 @@ Associated Files: homepage.html, homepage.js and homepage.css
           {{#if isInRole 'admin'}}
           <button class="home-listing-delete" onclick="Meteor.call('deleteJob', '{{_id}}')">Delete</button>
           {{/if}}
-        {{/if}}
+        {{/if}}-->
       </a>
       {{/each}}
+      </div>
     </div>
   </div>
 </template>

@@ -6,39 +6,99 @@ Associated Files: homepage.html, homepage.js and homepage.css
 */
 .home {
   background-color: #ffffff;
-  margin: 0px 30px;
-  max-width: 1140px;
+  margin: auto;
+  max-width: 1188px;
   overflow: hidden;
 }
 
-.dot{
-  height:10px;
-  width: 10px;
-  float:left;
+.home-image{
+  max-width: 100%;
+  max-height: 400px;
+  width:auto;
+  height:auto;
+  overflow: hidden;
+}
+
+img{
+  max-width: 100%;
+  width:auto;
+  height:auto;
+}
+
+.Search-case{
   display: none;
-  margin-right:5px;
+}
+
+.Search-tag{
+  background-color: #808080 !important;
+  color:#ffffff !important;
+}
+
+.SearchtagText{
+  max-width: 145px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;;
+
+}
+.case{
+  height:30px;
+  width: 30px;
+  float:left;
+  margin-top:-4px;
+  z-index: 1;
+  position:relative;
+  border-radius: 100%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #ffffff;
+}
+
+.fa-suitcase{
+  margin-left:7px;
 }
 
 .home-tags {
-  width: 100%;
+  min-width: 980px;
   height: 28px;
   overflow: hidden;
   padding-top: 5px;
   line-height: 25px;
+  margin:auto;
   margin-top: 10px;
+
 }
 .home-tag {
+  position:relative;
+  left: -10px;
   min-width: 10px;
+  max-width: 156px;
   padding: 4px 8px;
   font-size: 14px;
   line-height: 1;
   color: #ffffff;
   text-align: center;
   white-space: nowrap;
-  border-radius: 10px;
   margin-right: 5px;
   cursor: pointer;
   float: left;
+  border-style:solid;
+  border-width: 2px;
+  border-radius:7px;
+}
+
+.admin-button-container{
+  width: 100%;
+  margin-top: 15px;
+}
+
+.admin-button{
+  padding: 5px;
+}
+
+.listing-panel{
+  margin: auto;
+  width: 770px;
 }
 
 .home-listing {
@@ -50,15 +110,24 @@ Associated Files: homepage.html, homepage.js and homepage.css
   margin-top: 10px
 }
 
+.listingText{
+  float:right;
+  width:285px;
+  text-align: left;
+  margin-left:0px;
+  margin-top:6px;
+}
 .home-listing a {
   height: 65px;
   font-size: 18px;
   color: #555;
   display: block;
   background-color: #fff;
-  border: 1px solid #ddd;
-  margin-top: -1px;
+  /*border: 1px solid #ddd;*/
+  margin-top: 20px;
   text-decoration: none;
+  width: 300px;
+  float:left;
 }
 .home-listing a:first-child {
   border-top-right-radius: 4px;
@@ -73,12 +142,21 @@ Associated Files: homepage.html, homepage.js and homepage.css
 }
 
 .home-listing-lft {
-  margin: 5px 0px 0px 10px;
+  height:60px;
+  margin: 5px 0px 0px 0px;
   float: left;
+  border-left: 12px solid;
+  opacity: .3;
 }
 
 .home-listing-lft-txt {
-  font-size: 22px;
+  /*font-size: 22px;*/
+  height:60px;
+  vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 12px;
+  margin-top: 5px;
 }
 
 .home-listing-lft-txt div {
@@ -125,25 +203,31 @@ Associated Files: homepage.html, homepage.js and homepage.css
 }
 
 .red_fade {
-  background-color: #ff66cc !important;
+  background-color: #FF0000 !important;
+  color: #ffffff !important;
 }
 
 .orange_fade {
-  background-color: #ff9933 !important;
+  background-color: #FF6600 !important;
+  color: #ffffff !important;
 }
 
 .green_fade {
-  background-color: #66ff66 !important;
+  background-color: #009900 !important;
+  color: #ffffff !important;
 }
 
 .blue_fade {
-  background-color: #66ccff !important;
+  background-color: #0000FF !important;
+  color: #ffffff !important;
 }
 
 .purple_fade {
-  background-color: #9933ff !important;
+  background-color: #6600CC !important;
+  color: #ffffff !important;
 }
 
 .user_fade {
-  background-color: #444444 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
 }
