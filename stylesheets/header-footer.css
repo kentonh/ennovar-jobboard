@@ -150,3 +150,7 @@
   background-color: pink;
   margin: 0px auto;
 }
+
+.login-dropdown-list{
+  white-space: normal !important;
+}
