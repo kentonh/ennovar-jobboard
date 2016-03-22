@@ -87,7 +87,7 @@ if(Meteor.isClient)
             if(criteria != "")
             {
               var num = 0;
-              Jobs.find({category: this.name}).forEach(function(listingList){
+              Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
                 if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 {
                   num += 1;
@@ -95,7 +95,7 @@ if(Meteor.isClient)
               });
               return num;
             }
-            return Jobs.find({category: this.name}).count();
+            return Jobs.find({category: this.name, isExpired: false}).count();
           }else {
             return 0;
           }
@@ -103,7 +103,7 @@ if(Meteor.isClient)
           if(criteria != "")
           {
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
                 && userListArray.indexOf(listingList.category) != -1
@@ -115,7 +115,7 @@ if(Meteor.isClient)
             return num;
           }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if(listingList.owner == Meteor.userId()){
                 num += 1;
               }
@@ -144,7 +144,7 @@ if(Meteor.isClient)
             if(criteria != "")
             {
               var num = 0;
-              Jobs.find({category: this.name}).forEach(function(listingList){
+              Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
                 if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 {
                   num += 1;
@@ -152,7 +152,7 @@ if(Meteor.isClient)
               });
               return num;
             }
-            return Jobs.find({category: this.name}).count();
+            return Jobs.find({category: this.name, isExpired: false}).count();
           }else {
             return 0;
           }
@@ -160,7 +160,7 @@ if(Meteor.isClient)
           if(criteria != "")
           {
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
                 && userListArray.indexOf(listingList.category) != -1
@@ -172,7 +172,7 @@ if(Meteor.isClient)
             return num;
           }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if(listingList.owner == Meteor.userId())
               {
                 num += 1;
@@ -202,7 +202,7 @@ if(Meteor.isClient)
             if(criteria != "")
             {
               var num = 0;
-              Jobs.find({category: this.name}).forEach(function(listingList){
+              Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
                 if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 {
                   num += 1;
@@ -210,7 +210,7 @@ if(Meteor.isClient)
               });
               return num;
             }
-            return Jobs.find({category: this.name}).count();
+            return Jobs.find({category: this.name, isExpired: false}).count();
           }else {
             return 0;
           }
@@ -218,7 +218,7 @@ if(Meteor.isClient)
           if(criteria != "")
           {
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
                 && userListArray.indexOf(listingList.category) != -1
@@ -230,7 +230,7 @@ if(Meteor.isClient)
             return num;
           }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if(listingList.owner == Meteor.userId())
               {
                 num += 1;
@@ -260,7 +260,7 @@ if(Meteor.isClient)
             if(criteria != "")
             {
               var num = 0;
-              Jobs.find({category: this.name}).forEach(function(listingList){
+              Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
                 if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 {
                   num += 1;
@@ -268,7 +268,7 @@ if(Meteor.isClient)
               });
               return num;
             }
-            return Jobs.find({category: this.name}).count();
+            return Jobs.find({category: this.name, isExpired: false}).count();
           }else {
             return 0;
           }
@@ -276,7 +276,7 @@ if(Meteor.isClient)
           if(criteria != "")
           {
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
                 && userListArray.indexOf(listingList.category) != -1
@@ -288,7 +288,7 @@ if(Meteor.isClient)
             return num;
           }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if(listingList.owner == Meteor.userId())
               {
                 num += 1;
@@ -318,7 +318,7 @@ if(Meteor.isClient)
             if(criteria != "")
             {
               var num = 0;
-              Jobs.find({category: this.name}).forEach(function(listingList){
+              Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
                 if(listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 {
                   num += 1;
@@ -326,7 +326,7 @@ if(Meteor.isClient)
               });
               return num;
             }
-            return Jobs.find({category: this.name}).count();
+            return Jobs.find({category: this.name, isExpired: false}).count();
           }else {
             return 0;
           }
@@ -334,7 +334,7 @@ if(Meteor.isClient)
           if(criteria != "")
           {
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if((listingList.title.indexOf(criteria) != -1 || listingList.company.indexOf(criteria) != -1 || listingList.description.indexOf(criteria) != -1)
                 && (array.length == 1 || ( array.length > 1 && array.indexOf(listingList.category)!= -1))
                 && userListArray.indexOf(listingList.category) != -1
@@ -346,7 +346,7 @@ if(Meteor.isClient)
             return num;
           }else if((array.length == 1 || array.indexOf(this.name) != -1) && userListArray.indexOf(this.name) != -1){
             var num = 0;
-            Jobs.find({category: this.name}).forEach(function(listingList){
+            Jobs.find({category: this.name, isExpired: false}).forEach(function(listingList){
               if(listingList.owner == Meteor.userId())
               {
                 num += 1;
