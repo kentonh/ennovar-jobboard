@@ -21,10 +21,11 @@ Associated Files: homepage.html, homepage.js and homepage.css
         <div class="User-case case" style = "border-color: #ffffff; color: #ffffff; background-color:#000000;"><i class="fa fa-suitcase"></i></div><div class="home-tag" id = "User" style = "border-color: #000000; color: #000000;">Your listings &nbsp;&nbsp;{{userNumber}}</div>
       {{/if}}
     </div>
-
+    {{#if isInRole 'admin'}}
     <div class="admin-button-container">
       <button class="admin-button" onclick="Meteor.call('getEmails')">Click to Download List of Users</button>
     </div>
+    {{/if}}
 
     <div class="home-listing">
       <div class="listing-panel">
